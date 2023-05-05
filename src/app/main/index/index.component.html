@@ -1,0 +1,52 @@
+<header>
+  <div class="app-title"><p>Portfolio</p></div>
+  <div class="navigation">
+    <p (click)="scroll(aboutme)">About me</p>
+    <p (click)="scroll(myprojects)">My Projects</p>
+    <p>CV</p>
+  </div>
+</header>
+<div class="about-me">
+  <h1 #aboutme>Hello, I'm Mario Constantinescu</h1>
+  <p>
+    I am 21 years old and I like IT industry, sports (especially football), good
+    music and interacting with other people. I enjoy the beach, nature, trips,
+    music festivals, going to sport events, meeting new people and learning
+    interesting things everyday. I am serious when it comes to work on
+    something, curious to discover things I don't know, punctual and a person
+    you enjoy working with.
+  </p>
+  <br />
+  <h1>Hobbies</h1>
+  <p>
+    <b>Programming</b> - I started programming at 13 years old and since then I
+    tried several technologies: C, C++, C#, Python, PHP, Java, Kotlin, Angular.
+  </p>
+  <p>
+    <b>Technology</b> - I was always fascinated by smart things like smart TVs,
+    smart watches, smart phones and so on and what they can do and I'm always
+    thinking about how they implemented certain things and try to figure it out
+    myself.
+  </p>
+  <p>
+    <b>Sports</b> - I played sports since I was child. My favorite was and will
+    always be football though I played basketball as well and I took dancing
+    classes.
+  </p>
+  <p>
+    <b>Music Festivals</b> - having fun is almost as important as working. And
+    you remain with some unforgettable memories.
+  </p>
+  <p>
+    <b>Fashion</b> - although I'm not an expert I try to dress well. As they
+    say, people can have a good first impression about you if they like how you
+    appear.
+  </p>
+</div>
+<div class="my-projects">
+  <h1 #myprojects>My Projects</h1>
+  <br />
+  <div class="projects-container">
+    <app-card *ngFor="let project of projects"></app-card>
+  </div>
+</div>
