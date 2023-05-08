@@ -3,11 +3,14 @@
   <div class="navigation">
     <p (click)="scroll(aboutme)">About me</p>
     <p (click)="scroll(myprojects)">My Projects</p>
-    <p>CV</p>
+    <p (click)="scroll(CV)">CV</p>
+    <p (click)="scroll(contact)">Contact</p>
   </div>
 </header>
 <div class="about-me">
-  <h1 #aboutme>Hello, I'm Mario Constantinescu</h1>
+  <h1 #aboutme style="color: #eef4ed">
+    <b>Hello, I'm Mario Constantinescu</b>
+  </h1>
   <p>
     I am 21 years old and I like IT industry, sports (especially football), good
     music and interacting with other people. I enjoy the beach, nature, trips,
@@ -17,7 +20,7 @@
     you enjoy working with.
   </p>
   <br />
-  <h1>Hobbies</h1>
+  <h1 style="color: #eef4ed"><b>Hobbies</b></h1>
   <p>
     <b>Programming</b> - I started programming at 13 years old and since then I
     tried several technologies: C, C++, C#, Python, PHP, Java, Kotlin, Angular.
@@ -44,9 +47,48 @@
   </p>
 </div>
 <div class="my-projects">
-  <h1 #myprojects>My Projects</h1>
+  <h1 #myprojects style="color: #eef4ed"><b>My Projects</b></h1>
   <br />
   <div class="projects-container">
-    <app-card *ngFor="let project of projects"></app-card>
+    <app-card
+      *ngFor="let project of projects; let i = index"
+      [index]="i"
+    ></app-card>
   </div>
 </div>
+<div class="CV">
+  <h1 #CV style="color: #eef4ed"><b>CV</b></h1>
+  <p style="width: fit-content; margin: 0">
+    <a
+      href="https://github.com/corsimar/CV/blob/main/Constantinescu_Mario_CV.pdf"
+      style="text-decoration: none; color: #eef4ed"
+      >Open CV in new tab</a
+    >
+  </p>
+  <img
+    src="/assets/CV.png"
+    style="margin-top: 24px"
+    width="700px"
+    height="1000px"
+  />
+</div>
+<div class="contact">
+  <h1 #contact style="color: #eef4ed"><b>Contact</b></h1>
+  <div class="contacts" style="display: flex; column-gap: 48px">
+    <div
+      class="contact-form"
+      style="display: flex; align-items: center; column-gap: 8px"
+    >
+      <span nz-icon nzType="mail" nzTheme="outline"></span>
+      <p style="margin: 0">constantinescu.mario_06_05@yahoo.com</p>
+    </div>
+    <div
+      class="contact-form"
+      style="display: flex; align-items: center; column-gap: 8px"
+    >
+      <span nz-icon nzType="phone" nzTheme="outline"></span>
+      <p style="margin: 0">+40729665059</p>
+    </div>
+  </div>
+</div>
+<div style="width: 100%; height: 100px"></div>

@@ -6,20 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  projects = [
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-    'Macao',
-  ];
+  projects = ['', '', '', '', '', '', '', '', ''];
 
   constructor() {}
 

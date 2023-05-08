@@ -11,13 +11,13 @@
 .title {
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .language {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 p {
@@ -34,15 +34,15 @@ p {
   width: 120px;
   height: 40px;
   margin-top: 12px;
-  background-color: rgb(35, 131, 209);
+  background-color: #8da9c4;
   border: none;
   border-radius: 2px;
-  color: white;
+  color: #eef4ed;
   font-family: Verdana, sans-serif;
   cursor: pointer;
 }
 
 .actions button:hover {
-  background-color: rgb(59, 151, 226);
+  background-color: #afc9e2;
   transition-duration: 0.1s;
 }

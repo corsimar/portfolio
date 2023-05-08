@@ -1,12 +1,14 @@
 <div class="container">
   <div class="info">
     <div class="title">
-      <p>Macao</p>
+      <p>{{ projects[index] }}</p>
     </div>
-    <div class="language"><p>Java</p></div>
+    <div class="language">
+      <p>{{ languages[index] }}</p>
+    </div>
   </div>
-  <img width="360" height="300" src="/assets/Macao.png" />
+  <img width="360" height="300" [src]="images[index]" />
   <div class="actions">
-    <button>View code</button>
+    <a [href]="links[index]"><button>View code</button></a>
   </div>
 </div>
