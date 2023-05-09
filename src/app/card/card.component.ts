@@ -37,15 +37,15 @@ export class CardComponent implements OnInit {
   ];
 
   images = [
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/JocDeCarti.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/Painter.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/PoligonConvex.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/PSLG.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/SnakeGame.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/TicTacToe.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/eEvent.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/Rectangle.png',
-    'https://github.com/corsimar/portfolio/tree/main/docs/assets/PunctPoligonSimplu.png',
+    'assets/JocDeCarti.png',
+    'assets/Painter.png',
+    'assets/PoligonConvex.png',
+    'assets/PSLG.png',
+    'assets/SnakeGame.png',
+    'assets/TicTacToe.png',
+    'assets/eEvent.png',
+    'assets/Rectangle.png',
+    'assets/PunctPoligonSimplu.png',
   ];
 
   links = [
