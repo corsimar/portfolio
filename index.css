@@ -1,0 +1,71 @@
+.my-header {
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-python {
+  background-color: #0d6efd;
+}
+
+.bg-ml {
+  background-color: #198754;
+}
+
+.bg-dl {
+  background-color: #6610f2;
+}
+
+.bg-angular {
+  background-color: #dc3545;
+}
+
+.bg-github {
+  background-color: #515151;
+}
+
+.bg-ajax {
+  background-color: #6c757d;
+}
+
+.bg-bootstrap {
+  background-color: #6f42c1;
+}
+
+.bg-ai {
+  background-color: #ffc107;
+}
+
+.bg-java {
+  background-color: #fd7e14;
+}
+
+.bg-geometry {
+  background-color: #d63384;
+}
+
+.bg-clustering {
+  background-color: #20c997;
+}
+
+.filter-selected {
+  opacity: 1;
+}
+
+.filter-unselected {
+  opacity: 0.5;
+}
+
+pre, code {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
