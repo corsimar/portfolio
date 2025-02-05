@@ -1,0 +1,2832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
+      rel="stylesheet"
+    />
+    <script src="index.js"></script>
+    <script src="category.js"></script>
+    <script src="project.js"></script>
+    <script src="hackathon.js"></script>
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col d-flex flex-column align-items-center">
+          <p class="lead" style="margin: 0">Constantinescu Mario-Cristian</p>
+          <p class="lead" style="font-size: 16px">
+            Machine Learning passionate
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center" style="gap: 24px">
+          <div class="d-flex align-items-center" style="gap: 12px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-envelope"
+              viewBox="0 0 16 16"
+              style="cursor: pointer"
+              onclick="showEmail()"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+              />
+            </svg>
+          </div>
+          <div class="d-flex align-items-center" style="gap: 12px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-telephone"
+              viewBox="0 0 16 16"
+              style="cursor: pointer"
+              onclick="showPhoneNumber()"
+            >
+              <path
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+              />
+            </svg>
+          </div>
+          <div class="d-flex align-items-center" style="gap: 12px">
+            <a
+              href="https://www.linkedin.com/in/mario-cristian-constantinescu-a97475245/"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="currentColor"
+                class="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div
+          class="col d-flex justify-content-center flex-wrap"
+          style="gap: 24px"
+        >
+          <button class="button" onclick="switchOption(event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-check"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+              />
+            </svg>
+            About me
+          </button>
+          <button class="button" onclick="switchOption(event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-check"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+              />
+            </svg>
+            Education
+          </button>
+          <button class="button" onclick="switchOption(event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-check"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+              />
+            </svg>
+            Projects
+          </button>
+          <button class="button" onclick="switchOption(event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-check"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+              />
+            </svg>
+            Hackathons
+          </button>
+          <button class="button" onclick="switchOption(event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-check"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+              />
+            </svg>
+            CV
+          </button>
+        </div>
+      </div>
+      <div class="row mt-5 d-none about-me">
+        <div class="col d-flex ms-5"><h1 class="display-6">About</h1></div>
+      </div>
+      <div class="row mt-3 d-none about-me">
+        <div class="col d-flex flex-wrap ms-5" style="gap: 64px">
+          <div class="d-flex flex-column justify-content-start">
+            <p class="lead"><b>Age</b></p>
+            <div>
+              <div class="lead">22</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <p class="lead"><b>Job status</b></p>
+            <div>
+              <div class="lead">Looking for a job</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <p class="lead"><b>Phone</b></p>
+            <div>
+              <div class="lead">+40729665059</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <p class="lead"><b>Email</b></p>
+            <div>
+              <div class="lead">constantinescu.mario_06_05@yahoo.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-none about-me">
+        <div class="col d-flex ms-5">
+          <h1 class="display-6">Languages spoken</h1>
+        </div>
+      </div>
+      <div class="row mt-3 d-none about-me">
+        <div class="col d-flex flex-wrap ms-5" style="gap: 24px">
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Romanian</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Native</h6>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">English</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">B2</h6>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Spanish</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">A2</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-none about-me">
+        <div class="col d-flex ms-5">
+          <h1 class="display-6">Technologies</h1>
+        </div>
+      </div>
+      <div class="row mt-3 d-none about-me">
+        <div class="col d-flex flex-wrap ms-5" style="gap: 64px">
+          <div class="d-flex flex-column justify-content-start">
+            <p class="lead"><b>Machine learning</b></p>
+            <div>
+              <div class="lead">Scikit-learn</div>
+              <div class="lead">Imblearn</div>
+              <div class="lead">Keras</div>
+              <div class="lead">Tensorflow</div>
+              <div class="lead">Artificial Neural Networks</div>
+              <div class="lead">Convolutional Neural Networks</div>
+              <div class="lead">MediaPipe</div>
+              <div class="lead">Face recognition</div>
+              <div class="lead">Gestures recognition</div>
+              <div class="lead">Clustering</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Web Development (Frontend)</b></div>
+            <div class="mt-3">
+              <div class="lead">Angular</div>
+              <div class="lead">Web Sockets</div>
+              <div class="lead">Bootstrap</div>
+              <div class="lead">jQuery</div>
+              <div class="lead">AJAX</div>
+              <div class="lead">Streamlit</div>
+              <div class="lead">Three JS</div>
+              <div class="lead">Chart JS</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Web Development (Backend)</b></div>
+            <div class="mt-3">
+              <div class="lead">ASP.NET</div>
+              <div class="lead">Entity Framework</div>
+              <div class="lead">Dapper</div>
+              <div class="lead">Django</div>
+              <div class="lead">Flask</div>
+              <div class="lead">Web Sockets</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Databases (SQL)</b></div>
+            <div class="mt-3">
+              <div class="lead">SQL Live Server</div>
+              <div class="lead">PostgreSQL</div>
+              <div class="lead">Oracle</div>
+              <div class="lead">MySQL</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Databases (NoSQL)</b></div>
+            <div class="mt-3">
+              <div class="lead">MongoDB</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Containerization</b></div>
+            <div class="mt-3">
+              <div class="lead">Docker</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Virtual and Augmented Reality</b></div>
+            <div class="mt-3">
+              <div class="lead">GoDot</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-start">
+            <div class="lead"><b>Others</b></div>
+            <div class="mt-3">
+              <div class="lead">C/C++</div>
+              <div class="lead">Java</div>
+              <div class="lead">Arduino</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-none education">
+        <div class="col d-flex ms-5"><h1 class="display-6">Education</h1></div>
+      </div>
+      <div class="row mt-3 d-none education">
+        <div class="col d-flex flex-wrap ms-5" style="gap: 24px">
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">High School</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">2017-2021</h6>
+              <div class="card-text">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Field of study</strong>: Mathematics and Computer
+                    Science
+                  </li>
+                  <li class="list-group-item">
+                    <strong>School</strong>: Liceul Teoretic "Carmen Sylva"
+                  </li>
+                  <li class="list-group-item">
+                    <strong>City</strong>: Eforie Sud, Constanta, Romania
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Final grade</strong>: 9.01
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Bachelor's Degree</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">2021-2024</h6>
+              <div class="card-text">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Field of study</strong>: Computer Science
+                  </li>
+                  <li class="list-group-item">
+                    <strong>School</strong>: Facultatea de matematica si
+                    informatica, Universitatea Ovidius
+                  </li>
+                  <li class="list-group-item">
+                    <strong>City</strong>: Constanta, Romania
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Final grade</strong>: 9.87
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Master's Degree</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">
+                2024-2026 (in progress)
+              </h6>
+              <div class="card-text">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Field of study</strong>: Cyber Security and Machine
+                    Learning (in English)
+                  </li>
+                  <li class="list-group-item">
+                    <strong>School</strong>: Facultatea de matematica si
+                    informatica, Universitatea Ovidius
+                  </li>
+                  <li class="list-group-item">
+                    <strong>City</strong>: Constanta, Romania
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-none projects">
+        <div
+          class="col d-flex flex-column align-items-start project-category ms-5"
+          id="projectsWrapper"
+        >
+          <div
+            class="lead collapsed"
+            data-bs-toggle="collapse"
+            href="#interactiveProjects"
+            role="button"
+            aria-expanded="false"
+            aria-controls="interactiveProjects"
+            id="projectCategory"
+            onclick="expandCategory(event)"
+          >
+            <b style="cursor: pointer">Interactive</b>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-down-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-up-fill"
+              viewBox="0 0 16 16"
+              hidden
+            >
+              <path
+                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+              />
+            </svg>
+          </div>
+          <div class="collapse w-100 mt-3" id="projectCategoryWrapper">
+            <div class="accordion">
+              <div
+                class="accordion-item mt-3"
+                style="border: 1px solid #d8d8d8; border-radius: 5px"
+                hidden
+              >
+                <h2 class="accordion-header">
+                  <button
+                    onclick="handleHackathonItem(event)"
+                    class="accordion-button collapsed"
+                    style="background-color: #f0f0f0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Accordion Item #2
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <div class="project-card">
+                      <img
+                        class="project-image mt-1"
+                        src=""
+                        alt="No photo available"
+                      />
+                      <div class="project-content d-flex flex-column">
+                        <div class="d-flex" style="gap: 16px">
+                          <p class="lead" style="margin: 0">
+                            <b>About the project</b>
+                          </p>
+                          <a class="d-none align-items-center" target="_blank">
+                            <span
+                              class="d-flex align-items-center badge bg-github"
+                              style="cursor: pointer"
+                              ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-github"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                                /></svg></span
+                          ></a>
+                          <a class="d-none align-items-center">
+                            <span
+                              class="d-flex align-items-center badge bg-primary"
+                              style="cursor: pointer"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-play-fill"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
+                                />
+                              </svg>
+                              Start
+                            </span>
+                          </a>
+                          <span
+                            class="d-none align-items-center badge bg-primary"
+                            style="cursor: pointer"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalCode"
+                            onclick="updateProjectCode(event)"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-code-slash"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <div
+                          class="lead project-description d-flex flex-column mt-3"
+                        >
+                          Project description hereProject description
+                          hereProject description hereProject description
+                          hereProject description hereProject description
+                          hereProject description here
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li
+                            class="list-group-item d-flex flex-wrap technologies"
+                            style="padding: 0"
+                          >
+                            <span class="badge bg-primary">123</span>
+                            <span class="badge bg-primary">123</span>
+                            <span class="badge bg-primary">123</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-none hackathons">
+        <div class="col d-flex ms-5"><h1 class="display-6">Hackathons</h1></div>
+      </div>
+      <div class="row mt-3 d-none hackathons">
+        <div class="accordion">
+          <div
+            class="accordion-item mt-3 ms-5"
+            style="border: 1px solid #d8d8d8; border-radius: 5px"
+          >
+            <h2 class="accordion-header">
+              <button
+                onclick="handleHackathonItem(event)"
+                class="accordion-button collapsed"
+                style="background-color: #f0f0f0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Accordion Item #2
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <div class="card hackathon-card">
+                  <img src="" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <p class="lead"></p>
+                    <h5 class="card-title lead">About the project</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex flex-wrap technologies">
+                      <span class="badge"></span>
+                    </li>
+                    <li class="list-group-item">A second item</li>
+                  </ul>
+                  <div class="card-body d-flex flex-wrap technologies">
+                    <a href="#"
+                      ><button
+                        class="btn"
+                        style="color: #ffffff; background-color: #474747"
+                      >
+                        Github repository
+                      </button></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-none cv">
+        <div class="col d-flex ms-5"><h1 class="display-6">CV</h1></div>
+      </div>
+      <div class="row mt-3 d-none cv">
+        <div class="col d-flex ms-5" style="gap: 24px">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              onclick="$('#cven').attr('hidden', true); $('#cvro').attr('hidden', false);"
+              checked
+            />
+            <label class="btn btn-outline-primary" for="btnradio1"
+              >Romanian</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+              onclick="$('#cvro').attr('hidden', true); $('#cven').attr('hidden', false);"
+            />
+            <label class="btn btn-outline-primary" for="btnradio2"
+              >English</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 d-none cv">
+        <div class="col d-flex ms-5">
+          <embed
+            id="cvro"
+            src="assets/CV.pdf"
+            type="application/pdf"
+            width="1000"
+            height="800"
+          />
+          <embed
+            id="cven"
+            src="assets/CV_EN.pdf"
+            type="application/pdf"
+            width="1000"
+            height="800"
+            hidden
+          />
+        </div>
+      </div>
+      <div class="row mt-5 d-none contact">
+        <div class="col d-flex ms-5"><h1 class="display-6">Contact</h1></div>
+      </div>
+      <div class="row mt-3 d-none contact">
+        <div class="col d-flex flex-column flex-wrap ms-5" style="gap: 24px">
+          <div class="d-flex align-items-center" style="gap: 12px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-envelope"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+              />
+            </svg>
+            constantinescu.mario_06_05@yahoo.com
+          </div>
+          <div class="d-flex align-items-center" style="gap: 12px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-telephone"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+              />
+            </svg>
+            +4072665059
+          </div>
+          <div class="d-flex align-items-center" style="gap: 12px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-linkedin"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+              />
+            </svg>
+            <a
+              href="https://www.linkedin.com/in/mario-cristian-constantinescu-a97475245/"
+              style="text-decoration: none"
+              >See profile</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5"></div>
+    </div>
+
+    <div
+      class="modal modal-xl fade"
+      id="modalCode"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="codeFontSize" class="form-label" id="codeFontSizeLabel"
+              >Font size</label
+            >
+            <input
+              type="range"
+              class="form-range"
+              min="10"
+              max="18"
+              id="codeFontSizeRange"
+              oninput="changeCodeFontSize(event)"
+            />
+            <pre><code id="projectCode" class="python project-code">
+
+            </code></pre>
+          </div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button
+              id="modalFullscreenBtn"
+              type="button"
+              class="btn d-flex"
+              onclick="switchModalFullscreen()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-arrows-fullscreen"
+                viewBox="0 0 16 16"
+                style="cursor: pointer"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-fullscreen-exit"
+                viewBox="0 0 16 16"
+                hidden
+              >
+                <path
+                  d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <pre hidden><code id="linearRegressionCode" class="python" hidden>
+    import numpy as np
+    from numpy import linalg as la
+
+    class LinearRegression:
+    def __init__(self, learning_rate=0.01, max_iterations=1000000, tol=0):
+        self.learning_rate = learning_rate
+        self.max_iterations = max_iterations
+        self.tol = tol
+
+    def cost(self, X_train, y_train):
+        y_pred = np.dot(X_train, self.theta)
+        
+        if self.regularization == 'None':
+            return (1 / X_train.shape[0]) * np.sum(np.square(y_train - y_pred))
+        elif self.regularization == 'L1':
+            return (1 / X_train.shape[0]) * np.sum(np.square(y_train - y_pred)) + self.reg_strength * np.sum(np.abs(self.theta[1:]))
+        elif self.regularization == 'L2':
+            return (1 / X_train.shape[0]) * np.sum(np.square(y_train - y_pred)) + self.reg_strength * np.sum(np.square(self.theta[1:]))
+
+    def fit(self, X_train, y_train, optimizer='gd', regularization='None'):
+        self.theta = np.zeros(X_train.shape[1])
+        
+        if optimizer == 'normal_equation':
+            inv = la.pinv(np.dot(X_train.T, X_train))
+            self.theta = np.dot(np.dot(inv, X_train.T), y_train)
+        elif optimizer == 'gd':
+            cost_history = []
+            
+            self.regularization = regularization
+            if self.regularization == 'L1':
+                self.reg_strength = 0.005
+            elif self.regularization == 'L2':
+                self.reg_strength = 0.001
+        
+            iteration = 0
+            while True:
+                y_pred = np.dot(X_train, self.theta)
+            
+                if self.regularization == 'None':
+                    self.theta[1:] = self.theta[1:] - self.learning_rate * (1 / (2 * X_train.shape[0]) * np.dot((y_pred - y_train), X_train[:, 1:]))
+                    self.theta[0] = self.theta[0] - self.learning_rate * (1 / (2 * X_train.shape[0]) * np.sum(y_pred - y_train))
+                elif self.regularization == 'L1':
+                    self.theta[1:] = self.theta[1:] - self.learning_rate * (1 / (2 * X_train.shape[0]) * (np.dot((y_pred - y_train), X_train[:, 1:]) + np.sign(self.theta[1:]) * self.reg_strength))
+                    self.theta[0] = self.theta[0] - self.learning_rate * (1 / (2 * X_train.shape[0]) * np.sum(y_pred - y_train))
+                elif self.regularization == 'L2':
+                    self.theta[1:] = self.theta[1:] - self.learning_rate * (1 / (2 * X_train.shape[0]) * (np.dot((y_pred - y_train), X_train[:, 1:]) + 2 * self.reg_strength * self.theta[1:]))
+                    self.theta[0] = self.theta[0] - self.learning_rate * (1 / (2 * X_train.shape[0]) * np.sum(y_pred - y_train))
+            
+                J = self.cost(X_train, y_train)
+                cost_history.append(J)
+                #print(J)
+            
+                if iteration > 0 and not self.tol == 0:
+                    if cost_history[iteration - 1] - cost_history[iteration] < self.tol:
+                        break
+                
+                iteration = iteration + 1
+                if iteration >= self.max_iterations:
+                    break
+            
+            #print(iteration)
+    </code></pre>
+    <pre hidden><code id="logisticRegressionCode" class="python" hidden>
+      import numpy as np
+      from numpy import linalg as la
+      import pandas as pd
+
+      class LogisticRegression:
+        def __init__(self, learning_rate=0.01, max_iterations=100000, tol=0, epsilon=1e-09):
+            self.learning_rate = 0.01
+            self.max_iterations = max_iterations
+            self.tol = tol
+            self.epsilon = epsilon
+            
+        def sigmoid(self, X):
+            return 1 / (1 + np.exp(-np.dot(X, self.theta)))
+        
+        def predict(self, X, threshold=0.5):
+            pred = self.sigmoid(X)
+            pred[pred >= threshold] = 1
+            pred[pred < threshold] = 0
+            return pred
+        
+        def log_likelihood(self, X, y):
+            pred = self.sigmoid(X)
+            positive_class = np.log(pred - self.epsilon)
+            negative_class = np.log(np.ones(len(pred)) - pred + self.epsilon)
+            return (1 / X.shape[0]) * (np.dot(y_train, positive_class) + np.dot((np.ones(len(y_train)) - y_train), negative_class))
+        
+        def fit(self, X_train, y_train, optimizer='GA'):
+            self.theta = np.zeros(X_train.shape[1])
+            l_history = []
+            iterations = 0
+            
+            if optimizer == 'GA':
+                while True:
+                    y_pred = self.sigmoid(X_train)
+                    
+                    self.theta[1:] += self.learning_rate * ((1 / X_train.shape[0]) * np.dot((y_train - y_pred), X_train[:, 1:]))
+                    self.theta[0] += self.learning_rate * ((1 / X_train.shape[0]) * np.sum(y_train - y_pred))
+                    
+                    l = self.log_likelihood(X_train, y_train)
+                    l_history.append(l)
+                    #print(l)
+                    
+                    if iterations > 0:
+                        if l_history[iterations] - l_history[iterations - 1] < self.tol:
+                            break
+                    
+                    iterations += 1
+                    if iterations >= self.max_iterations:
+                        break
+                    
+                print(iterations)
+            elif optimizer == 'Newton Method':
+                if self.max_iterations == 0 and self.tol == 0:
+                    return
+                
+                while True:
+                    y_pred = self.sigmoid(X_train)
+                    
+                    hessian = la.inv(np.dot(np.dot(X_train.T, np.diag(y_pred * (1 - y_pred))), X_train))
+            
+                    self.theta = self.theta - (1 / X_train.shape[0]) * np.dot(np.dot(hessian, X_train.T), (y_pred - y_train))
+                    
+                    l = self.log_likelihood(X_train, y_train)
+                    l_history.append(l)
+                    
+                    if iterations > 0:
+                        if iterations >= self.max_iterations or l_history[iterations] - l_history[iterations - 1] < self.tol:
+                            break
+                        
+                    iterations += 1
+            
+        def score(self, X_test, y_test, threshold=0.5):
+            pred = self.predict(X_test, threshold)
+            
+            correct_tests = 0
+            for i in range(X_test.shape[0]):
+                if pred[i] == y_test[i]:
+                    correct_tests += 1
+            
+            return correct_tests / len(y_test)
+        
+        def find_best_threshold(self, X_test, y_test, start=0.3, end=0.7, step_size=0.01):
+            steps = (int)((end - start) * step_size ** (-1))
+            
+            threshold_history = []
+            for i in range(steps):
+                threshold_history.append(self.score(X_test, y_test, threshold=(start + i * step_size)))
+                
+            best_tol = start + np.argmax(threshold_history) * step_size
+            return best_tol, np.max(threshold_history)
+    </code></pre>
+    <pre hidden><code id="gaussianNaiveBayesCode" class="python" hidden>
+      import numpy as np
+
+      class NaiveBayes:
+        def fit(self, X, y):
+            n_samples, n_features = X.shape
+            self.n_classes = len(np.unique(y))
+            
+            self._mean = np.zeros((self.n_classes, n_features), dtype=np.float64)
+            self._var = np.zeros((self.n_classes, n_features), dtype=np.float64)
+            self._priors = np.zeros(self.n_classes, dtype=np.float64)
+            
+            for idx in range(self.n_classes):
+                X_class = X[y == idx]
+                
+                self._mean[idx, :] = np.mean(X_class, axis=0)
+                self._var[idx, :] = np.var(X_class, axis=0)
+                self._priors[idx] = X_class.shape[0] / n_samples
+        
+        def _predict(self, x):
+            posteriors = []
+            
+            for class_idx in range(self.n_classes):
+                mean = self._mean[class_idx]
+                var = self._var[class_idx]
+                prior = self._priors[class_idx]
+                
+                numerator = np.exp(-np.square(x - mean) / np.square(2 * var))
+                denominator = var * np.sqrt(2 * np.pi)
+                
+                posterior = np.sum(np.log(numerator / denominator)) + prior
+                posteriors.append(posterior)
+                
+            return np.argmax(posteriors)
+                
+        def predict(self, X):
+            y_pred = [self._predict(x) for x in X]
+            return np.array(y_pred)
+    </code></pre>
+    <pre hidden><code id="decisionTreeCode" class="python" hidden>
+      import numpy as np
+      from collections import Counter
+
+      class Node:
+          def __init__(self, feature_idx=None, threshold=None, left=None, right=None, *, value=None):
+              self.feature_idx = feature_idx
+              self.threshold = threshold
+              self.left = left
+              self.right = right
+              self.value = value
+              
+          def is_leaf_node(self):
+              return self.value is not None
+
+      class DecisionTree:
+          def __init__(self, max_depth=100, min_samples_split=2, n_features=None):
+              self.max_depth = max_depth
+              self.min_samples_split = min_samples_split
+              self.n_features = n_features
+              
+          def most_common_value(self, y):
+              counter = Counter(y)
+              value = counter.most_common(1)[0][0]
+              
+              return value
+          
+          def entropy(self, y):
+              hist = np.bincount(y)
+              ps = hist / len(y)
+              
+              return -np.sum([p * np.log(p) for p in ps if p > 0])
+          
+          def split(self, X_column, split_threshold):
+              left_idxs = np.argwhere(X_column <= split_threshold).flatten()
+              right_idxs = np.argwhere(X_column > split_threshold).flatten()
+              
+              return left_idxs, right_idxs
+          
+          def information_gain(self, y, X_column, threshold):
+              parent_entropy = self.entropy(y)
+              
+              left_idxs, right_idxs = self.split(X_column, threshold)
+              
+              if len(left_idxs) == 0 or len(right_idxs) == 0:
+                  return 0
+              
+              n = len(y)
+              n_l, n_r = len(left_idxs), len(right_idxs)
+              e_l, e_r = self.entropy(y[left_idxs]), self.entropy(y[right_idxs])
+              children_entropy = (n_l / n) * e_l + (n_r / n) * e_r
+              
+              information_gain = parent_entropy - children_entropy
+              
+              return information_gain
+          
+          def best_split(self, X, y, feat_idxs):
+              best_gain = -1
+              split_idx, split_threshold = None, None
+              
+              for feat_idx in feat_idxs:
+                  X_column = X[:, feat_idx]
+                  thresholds = np.unique(X_column)
+                  
+                  for thr in thresholds:
+                      gain = self.information_gain(y, X_column, thr)
+                      
+                      if gain > best_gain:
+                          best_gain = gain
+                          split_idx = feat_idx
+                          split_threshold = thr
+                          
+              return split_idx, split_threshold
+              
+          def grow_tree(self, X, y, depth=0):
+              n_samples, n_feats = X.shape
+              n_labels = len(np.unique(y))
+              
+              if depth >= self.max_depth or n_labels <= 1 or n_samples <= self.min_samples_split:
+                  if len(y) == 0:
+                      return
+                  
+                  leaf_value = self.most_common_value(y)
+                  return Node(value=leaf_value)
+              
+              feat_idxs = np.random.choice(n_feats, self.n_features, replace=False)
+              best_feature_idx, best_threshold = self.best_split(X, y, feat_idxs)
+              
+              left_idxs, right_idxs = self.split(X[:, best_feature_idx], best_threshold)
+              
+              left = self.grow_tree(X[left_idxs, :], y[left_idxs], depth + 1)
+              right = self.grow_tree(X[right_idxs, :], y[right_idxs], depth + 1)
+              
+              return Node(best_feature_idx, best_threshold, left, right)
+              
+          def fit(self, X, y):
+              self.n_features = X.shape[1] if not self.n_features else min(X.shape[1], self.n_features)
+              self.root = self.grow_tree(X, y)
+          
+          def traverse_tree(self, x, node):
+              if node.is_leaf_node():
+                  return node.value
+              
+              if x[node.feature_idx] <= node.threshold:
+                  return self.traverse_tree(x, node.left)
+              
+              return self.traverse_tree(x, node.right)
+          
+          def predict(self, X):
+              return np.array([self.traverse_tree(x, self.root) for x in X])
+    </code></pre>
+    <pre hidden><code id="randomForestCode" class="python" hidden>
+      import numpy as np
+      from DecisionTree import DecisionTree
+      from collections import Counter
+      
+      class RandomForest:
+          def __init__(self, n_trees=10, max_depth=10, min_samples_split=2, n_features=None):
+              self.n_trees = n_trees
+              self.max_depth = max_depth
+              self.min_samples_split = min_samples_split
+              self.n_features = n_features
+              self.trees = []
+              
+          def bootstrap_samples(self, X, y):
+              n_samples = X.shape[0]
+              
+              idxs = np.random.choice(n_samples, n_samples, replace=True)
+              
+              return X[idxs], y[idxs]
+              
+          def fit(self, X, y):
+              self.trees = []
+              for _ in range(self.n_trees):
+                  tree = DecisionTree(max_depth=self.max_depth,
+                                  min_samples_split=self.min_samples_split,
+                                  n_features=self.n_features)
+                  
+                  X_sample, y_sample = self.bootstrap_samples(X, y)            
+                  tree.fit(X_sample, y_sample)
+                  self.trees.append(tree)
+                  
+          def most_common_label(self, y):
+              counter = Counter(y)
+              most_common = counter.most_common(1)[0][0]
+              
+              return most_common
+          
+          def predict(self, X):
+              predictions = np.array([tree.predict(X) for tree in self.trees])
+              tree_preds = np.swapaxes(predictions, 0, 1)
+              
+              return np.array([self.most_common_label(pred) for pred in tree_preds])
+    </code></pre>
+    <pre hidden><code id="kNearestNeighboursCode" class="python" hidden>
+      import numpy as np
+      import cv2
+      import os
+      from numpy import linalg as la
+      import time
+      import matplotlib.pyplot as plt
+      import pandas as pd
+
+      class Eigenfaces():
+          def __init__(self, train_nr=8, RC=False):
+              self.train_nr, self.test_nr, self.people = train_nr, 10 - train_nr, 40
+              self.pixelsNumber = 10304
+              self.A = np.zeros((self.pixelsNumber, self.train_nr * self.people))
+              self.RC = RC
+              self.RCM = np.zeros((self.pixelsNumber, self.people))
+              
+              self.buildMatrix()
+
+          def buildMatrix(self):
+              folderPath = 'att_faces'
+              folders = os.listdir(folderPath)
+              j = 0
+              k = 0
+              for folder in folders:
+                  for i in range(0, self.train_nr):
+                      photo = cv2.imread(f'{folderPath}/{folder}/{(i + 1)}.pgm', 0)
+                      photo = np.array(photo)
+                      photo = photo.reshape(-1,)
+                      self.A[:, j] = photo
+                      j = j + 1
+                  if self.RC == True:
+                      self.RCM[:, k] = np.mean(self.A[:, j - self.train_nr:j])
+                      k = k + 1
+              self.B = self.A
+                  
+          def pre_processing_classic(self, k): # Not recommended
+              self.mean = np.mean(self.A, axis=1)
+          
+              self.A = (self.A.T - self.mean).T
+              C = np.dot(self.A, self.A.T) #10304x320 * 320x10304 = 10304x10304
+          
+              d, v = la.eig(C) # v: 10304x10304
+          
+              d_idx = np.argsort(d)[::-1]
+              d_idx_k = d_idx[:k]
+          
+              self.HQPB = v[:, d_idx_k]
+              self.projections = self.A.T@self.HQPB
+          
+          def pre_processing_optimized(self, k):
+              if self.RC == False:
+                  self.mean = np.mean(self.A, axis=1)
+              
+                  self.A = self.A - self.mean.reshape(self.pixelsNumber, 1)
+              
+                  L = self.A.T@self.A # 320x10304 * 10304x320 = 320x320
+                  d, v = la.eig(L) # v: 320x320
+                  v = self.A@v # 10304x320 * 320x320 = 10304x320
+              
+                  d_idx = np.argsort(d)[::-1]
+                  d_idx_k = d_idx[:k]
+              
+                  self.HQPB = v[:, d_idx_k] # 10304xk
+                  self.projections = self.A.T@self.HQPB # 320x10304 * 10304xk = 320xk
+              else:            
+                  self.mean = np.mean(self.RCM, axis=1)
+                  
+                  self.RCM = self.RCM - self.mean.reshape(self.pixelsNumber, 1)
+                  
+                  L = self.RCM.T@self.RCM # 40x10304 * 10304x40 = 40x40
+                  d, v = la.eig(L) # v: 40x40
+                  v = self.RCM@v # 10304x40 * 40x40 = 10304x40
+                  
+                  d_idx = np.argsort(d)[::-1]
+                  d_idx_k = d_idx[:k]
+                  
+                  self.HQPB = v[:, d_idx_k] # 10304xk
+                  self.projections = self.RCM.T@self.HQPB # 40x10304 * 10304xk = 40xk
+          
+          def NN(self, test_pr, norm):
+              z = np.zeros(self.projections.T.shape[1])
+              
+              for i in range(len(z)):
+                  if norm == '1':
+                      z[i] = la.norm(self.projections.T[:, i] - test_pr, 1)
+                  elif norm == '2':
+                      z[i] = la.norm(self.projections.T[:, i] - test_pr)
+                  elif norm == 'inf':
+                      z[i] = la.norm(self.projections.T[:, i] - test_pr, np.Inf)
+                  elif norm == 'cos':
+                      z[i] = 1 - np.dot(self.projections.T[:, i], test_pr) / (la.norm(self.projections.T[:, i]) * la.norm(test_pr))
+                      
+              return np.argsort(z)[0]
+          
+          def test_photo(self, personIndex, photoIndex, norm):
+              #print(personIndex, photoIndex)
+              folderPath = 'att_faces'
+              
+              photo = cv2.imread(f'{folderPath}/s{personIndex}/{photoIndex}.pgm', 0)
+              photo = np.array(photo)
+              photo = photo.reshape(-1,)
+              
+              photo = photo - self.mean
+              photo_pr = np.dot(photo, self.HQPB) # 10304x1 * 10304xk
+              
+              return self.NN(photo_pr, norm) // self.train_nr + 1
+          
+          def statistics(self, optimized=True, RC=True):
+              norms = ['1', '2', 'inf', 'cos']
+              totalTests = self.test_nr * self.people
+              
+              RR = np.zeros(len(norms))
+              TMI = np.zeros(len(norms))
+              
+              if optimized == False:
+                  folder = f'ORL_{self.train_nr}_EIG_C_{self.k}'
+                  if os.path.exists(folder) == False:
+                      os.mkdir(folder)
+                  
+                  open(f'{folder}/PP.txt', 'w').close()
+                  with open(f'{folder}/PP.txt', 'w') as file:
+                      t1 = time.time()
+                      self.pre_processing_classic()
+                      t2 = time.time()
+                      
+                      t = t2 - t1
+                      file.write(f'{t}')
+                      
+                  for j in range(len(norms)):
+                      personIndex = 1
+                      correctTests = 0
+                      t = 0.0
+                      for i in range(self.test_nr * self.people):
+                          photoIndex = self.train_nr + 1 + (i % self.test_nr)
+                      
+                          t1 = time.time()
+                          predictedPerson = self.test_photo(personIndex, photoIndex, norms[j])
+                          t = t + (time.time() - t1)
+                          
+                          if predictedPerson == personIndex:
+                              correctTests = correctTests + 1
+                              
+                          if i % self.train_nr == self.train_nr - 1:
+                              personIndex = personIndex + 1
+                      RR[j] = correctTests / totalTests
+                      TMI[j] = t / totalTests
+                  
+                  open(f'{folder}/RR.txt', 'w').close()
+                  with open(f'{folder}/RR.txt', 'w') as file:
+                      s = ''
+                      for i in range(len(RR)):
+                          s = s + f'{RR[i]};'
+                      
+                      s = s[:-1]
+                      file.write(s)
+                      
+                  open(f'{folder}/TMI.txt', 'w').close()
+                  with open(f'{folder}/TMI.txt', 'w') as file:
+                      s = ''
+                      for i in range(len(TMI)):
+                          s = s + f'{TMI[i]};'
+                      
+                      s = s[:-1]
+                      file.write(s)
+                  
+              else:
+                  folder = f'ORL_{self.train_nr}_EIG_O'
+                  if self.RC == True:
+                      folder = f'ORL_{self.train_nr}_EIG_O_RC'
+                  if os.path.exists(folder) == False:
+                      os.mkdir(folder)
+
+                  k = [20, 40, 60, 80, 100]
+                  if self.RC == True:
+                      k = [20, 40]
+                  
+                  pp_df = pd.DataFrame({
+                      'k': [],
+                      'Timp de preprocesare': []
+                  })
+                  
+                  df = pd.DataFrame({
+                      'k': [],
+                      'Norma': [],
+                      'Rata de recunoastere': [],
+                      'Timp mediu de interogare': []
+                  })
+
+                  for k_val in k:
+                      t1 = time.time()
+                      self.pre_processing_optimized(k_val)
+                      t2 = time.time()
+                      
+                      t = t2 - t1
+                      
+                      pp_df = pd.concat([pp_df, pd.DataFrame({
+                          'k': [k_val],
+                          'Timp de preprocesare': [t]
+                      })])
+                      
+                      for j in range(len(norms)):
+                          personIndex = 1
+                          correctTests = 0
+                          t = 0.0
+                          for i in range(self.test_nr * self.people):
+                              photoIndex = self.train_nr + 1 + (i % self.test_nr)
+                              t1 = time.time()
+                              predictedPerson = self.test_photo(personIndex, photoIndex, norms[j])
+                              t = t + (time.time() - t1)
+                              
+                              if predictedPerson == personIndex:
+                                  correctTests = correctTests + 1
+                                  
+                              if i % self.test_nr == self.test_nr - 1:
+                                  personIndex = personIndex + 1
+                                  
+                          df = pd.concat([df, pd.DataFrame({
+                              'k': [k_val],
+                              'Norma': [norms[j]],
+                              'Rata de recunoastere': [correctTests / totalTests],
+                              'Timp mediu de interogare': [t / totalTests]
+                          })])
+                          
+                  pp_df.to_csv(f'{folder}/PP.csv')
+                  df.to_csv(f'{folder}/RR_TMI.csv')
+          
+          def plot_statistics(train_nr=8, RC=False):
+              folder = f'ORL_{train_nr}_EIG_O'
+              if RC == True:
+                  folder = folder + '_RC'
+              
+              if os.path.exists(folder) == False:
+                  return
+              
+              plt.title("Fara reprezentati de clasa")
+              if RC == True:
+                  plt.title("Cu reprezentati de clasa")
+              
+              df = pd.read_csv(f'{folder}/PP.csv')
+              
+              k_values = df['k'].tolist()
+              for i in range(len(k_values)):
+                  k_values[i] = str(int(k_values[i]))
+              pp_values = df['Timp de preprocesare'].tolist()
+                  
+              plt.xlabel("Valoarea lui k")
+              plt.ylabel("Timp de preprocesare (secunde)")
+              plt.scatter(k_values, pp_values)
+              plt.show()
+              
+              df = pd.read_csv(f'{folder}/RR_TMI.csv')
+              
+              k_values = df['k'].unique().tolist()
+              for i in range(len(k_values)):
+                  k_values[i] = "k = " + str(int(k_values[i]))
+              norm_values = df['Norma'].unique().tolist()
+              rr_values = df['Rata de recunoastere'].tolist()
+              for i in range(len(rr_values)):
+                  rr_values[i] = float(rr_values[i]) * 100
+              tmi_values = df['Timp mediu de interogare'].tolist()
+              
+              plt.title("Fara reprezentati de clasa")
+              if RC == True:
+                  plt.title("Cu reprezentati de clasa")
+              
+              plt.xlabel("Norma")
+              plt.ylabel("Rata de recunoastere")
+              for i in range(len(k_values)):
+                  plt.scatter(norm_values, rr_values[i * len(norm_values):(i + 1) * len(norm_values)])
+                  plt.legend(k_values)
+              plt.show()
+              
+              plt.title("Fara reprezentati de clasa")
+              if RC == True:
+                  plt.title("Cu reprezentati de clasa")
+              
+              plt.ylabel("Timp mediu de recunoastere")
+              for i in range(len(k_values)):
+                  plt.scatter(norm_values, tmi_values[i * len(norm_values):(i + 1) * len(norm_values)])
+                  plt.legend(k_values)
+              
+
+      eig = Eigenfaces(train_nr=9, RC=False)
+      eig.statistics(optimized=True)
+      #Eigenfaces.plot_statistics(train_nr=8, RC=True)
+    </code></pre>
+    <pre hidden><code id="KMeansCode" class="python" hidden>
+      import numpy as np
+      import random
+      from numpy import linalg as la
+      import os
+      import cv2
+      import matplotlib.pyplot as plt
+      import math
+      import pandas as pd
+
+      class KMeans:
+          def __init__(self, A, people, k=40):
+              self.A, self.people, self.k = A, people, k
+              self.pixelsNumber = 10304
+              self.m, self.n = self.A.shape[0], self.A.shape[1]
+          
+          def alternative_1(self, iterations=0, stabilization=False):
+              self.clusters = np.array([], dtype=int)
+              for i in range(self.m // self.k):
+                  self.clusters = np.append(self.clusters, np.arange(self.k, dtype=int))
+              self.c = np.zeros((self.k, self.pixelsNumber))
+              
+              np.random.shuffle(self.clusters)
+              
+              i = 0
+              if iterations == 0 and stabilization == False:
+                  return
+              if iterations > 0:
+                  for i in range(iterations):
+                      self.c = np.zeros([self.k, self.pixelsNumber])
+                      self.calculate_centroids()
+                      self.regroup_points()
+              else:
+                  last_c = self.c.copy()
+                  self.c = np.zeros([self.k, self.pixelsNumber])
+                  self.calculate_centroids()
+                  self.regroup_points()
+                  
+                  while(not np.allclose(self.c, last_c)):
+                      last_c = self.c.copy()
+                      self.c = np.zeros([self.k, self.pixelsNumber])
+                      self.calculate_centroids()
+                      self.regroup_points()
+                      i = i + 1
+
+              for i in range(self.k):
+                  print(self.clusters[i * 10:(i + 1) * 10])
+              
+              print(i)
+                  
+          def alternative_2(self, iterations=0, stabilization=False):
+              random_idx = np.random.permutation(self.m)
+              self.c = self.A[random_idx[:self.k], :]
+              
+              i = 0
+              if iterations == 0 and stabilization == False:
+                  return
+              if iterations > 0:
+                  for i in range(iterations):
+                      self.regroup_points_2()
+                      self.calculate_centroids_2()
+              else:
+                  last_c = self.c.copy()
+                  self.regroup_points_2()
+                  self.calculate_centroids_2()
+                  
+                  while(not np.allclose(self.c, last_c)):
+                      last_c = self.c.copy()
+                      self.regroup_points_2()
+                      self.calculate_centroids_2()
+                      i = i + 1
+                      
+              for i in range(self.k):
+                  print(self.clusters[i * 10:(i + 1) * 10])
+                  
+              print(i)
+          
+          def calculate_centroids(self):
+              for j in range(self.k):
+                  if True in np.equal(self.clusters, j):
+                      self.c[j, :] = np.mean(self.A[np.equal(self.clusters, j), :], axis=0)
+          
+          def regroup_points(self):
+              distances = np.zeros([self.m, self.k])
+              for i in range(self.m):
+                  for j in range(self.k):
+                      distances[i, j] = la.norm(self.A[i, :] - self.c[j, :])
+              #print(distances)
+              #print(np.argmin(distances, axis=1))
+              self.clusters = np.argmin(distances, axis=1)
+              #print(self.clusters)
+              
+          def regroup_points_2(self):
+              distances = np.zeros([self.m, self.k])
+              for i in range(self.m):
+                  for j in range(self.k):
+                      distances[i, j] = la.norm(self.A[i, :] - self.c[j, :])
+              self.clusters = np.argmin(distances, axis=1)
+          
+          def calculate_centroids_2(self):
+              for j in range(self.k):
+                  self.c[j, :] = np.mean(self.A[np.equal(self.clusters, j), :], axis=0)
+                  
+          def plot_centroids(self, index):
+              plt.title(f'Centroid index: {index}')
+              plt.imshow(self.c[index].reshape(112, 92), cmap='gray')
+              plt.show()
+    </code></pre>
+    <pre hidden><code id="searchEngineCode" class="python" hidden>
+      import os
+      from collections import Counter
+      import numpy as np
+      from numpy import dot
+      from numpy.linalg import norm
+
+      directory = 'dataset Reuters'
+      files = os.listdir(directory)
+      n = len(files)
+      dl = np.zeros((n, 1))
+
+      t = []
+
+      d = {}
+
+      for file in files:
+          with open(os.path.join(directory, file), 'r') as f:
+              phrase = f.read().replace('T>', ' ').replace('--', ' ').replace(',', ' ').replace('.', ' ').replace('/', ' ').replace('?', ' ').replace('!', ' ').replace('\\', ' ').replace('<',' ').replace('"',' ').replace('(',' ').replace(')',' ')
+              words = phrase.split()
+          
+              stopping_words = ["a", "an", "and", "are", "as", "at", "be", 
+                              "but", "by", "for", "if", "in", "into", "is", 
+                              "it", "no", "not", "of", "on", "or", "such", "that", "the", 
+                              "their", "then", "there", "these", "they", "this", "to", 
+                              "was", "will", "with", "have", "mln", "said", "its", "from", "had",
+                              "also", "4", "000", "1", "has", "he", "about", "above", "after",
+                              "against", "all", "did", "didn't", "could", "couldn't", "does",
+                              "doesn't", "each", "having"]
+              
+              words = [word for word in words if word not in stopping_words]
+              
+              for i in range(len(words)):
+                  if words[i][-1] in [',', '.', '?', '!']:
+                      words[i] = words[i][:-1]
+                                  
+                  if words[i] in d:
+                      d[words[i]] = d[words[i]] + 1
+                  else:
+                      d[words[i]] = 1
+
+      sorted_dict = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
+      filtered_dict = {key: value for key, value in sorted_dict.items() if value < 20}
+
+      for key in filtered_dict:
+          t.append(key)
+          
+      m = len(t)
+      A = np.zeros((m, n))
+
+      j = 0
+      for file in files:
+          with open(os.path.join(directory, file), 'r') as f:
+              phrase = f.read().replace('T>', ' ').replace('--', ' ').replace(',', ' ').replace('.', ' ').replace('/', ' ').replace('?', ' ').replace('!', ' ').replace('\\', ' ').replace('<',' ').replace('"',' ').replace('(',' ').replace(')',' ')
+              words = phrase.split()
+
+              stopping_words = ["a", "an", "and", "are", "as", "at", "be", 
+                              "but", "by", "for", "if", "in", "into", "is", 
+                              "it", "no", "not", "of", "on", "or", "such", "that", "the", 
+                              "their", "then", "there", "these", "they", "this", "to", 
+                              "was", "will", "with", "have", "mln", "said", "its", "from", "had",
+                              "also", "4", "000", "1", "has", "he", "about", "above", "after",
+                              "against", "all", "did", "didn't", "could", "couldn't", "does",
+                              "doesn't", "each", "having"]
+              
+              words = [word for word in words if word not in stopping_words]
+              
+              dl[j] = len(words)
+
+              for i in range(len(words)):
+                  if words[i][-1] in [',', '.', '?', '!']:
+                      words[i] = words[i][:-1]
+
+              word_counts = [words.count(word) for word in t]
+              A[:, j] = word_counts
+              
+              j = j + 1
+                  
+      avgdl = np.mean(dl)
+
+      def build_query(query):
+          q = np.zeros((m, 1))
+          words_count = 0
+              
+          for i in range(m):
+              if t[i] in query:
+                  q[i, 0] = 1
+                  
+          return q
+
+      def cosine_similarity(q, col):
+          return np.dot(q.T, col) / (norm(q) * norm(col))
+          
+      def send_query(query, schema="TF", k=0, tol=0, debugging=True):
+          q = build_query(query)
+          if debugging:
+              print(f"Query: {q.T}")
+          
+          if schema == "TF":
+              cos = np.zeros((n, 1))
+      
+              for i in range(n):
+                  cos[i] = cosine_similarity(q, A[:, i])
+              
+              if debugging:
+                  print(f'Cosine similarity: {cos.T}\n')
+              
+              if not np.max(cos) == 0:
+                  cos = cos / np.max(cos)
+                  
+              indices = np.argsort(cos, axis=0)[::-1]
+              cos = cos[cos >= tol]
+          
+              return indices[:len(cos)], cos
+          elif schema == "TF-IDF":
+              norm_tf = np.zeros_like(A)
+              
+              for i in range(norm_tf.shape[1]):
+                  norm_tf[:, i] = A[:, i] / np.max(A[:, i])
+                  
+              aux = np.max(A, axis=0)
+              TF = A / aux
+                  
+              df = np.count_nonzero(A, axis=1)
+              df = df.astype(float)
+              z = np.min(df[df != 0]) / 2
+              df[df == 0] = z
+
+              idf = np.log10(n / df)
+              
+              '''weights = np.zeros_like(A)
+              for i in range(norm_tf.shape[0]):
+                  for j in range(norm_tf.shape[1]):
+                      weights[i, j] = norm_tf[i, j] * idf[i]'''
+                      
+              IDF = np.diag(idf)
+              weights = np.dot(IDF, TF)
+              
+              cos = np.zeros((n, 1))
+              for i in range(n):
+                  cos[i] = cosine_similarity(q, weights[:, i])
+              
+              if debugging:
+                  print(f'Cosine similarity: {cos.T}')
+                  
+              if not np.max(cos) == 0:
+                  cos = cos / np.max(cos)
+              
+              indices = np.argsort(cos, axis=0)[::-1]
+              cos = cos[cos >= tol]
+          
+              return indices[:len(cos)], cos
+          elif schema == 'Okapi':
+              f = A
+              fq = np.zeros((m, 1))
+              
+              query_split = query.split()
+              for i in range(m):
+                  for j in range(len(query_split)):
+                      if t[i] in query_split:
+                          fq[i] = fq[i] + 1
+                          
+              df = np.count_nonzero(A, axis=1)
+              df = df.astype(float)
+              
+              b = 0.75
+              k1 = 2
+              k2 = 1.2
+              
+              doc_score = np.zeros((n, 1))
+              for d_idx in range(n):
+                  for t_idx in range(m):
+                      if not fq[t_idx] == 0 and not f[t_idx, d_idx] == 0:
+                          doc_score[d_idx] = doc_score[d_idx] + np.log((n - df[i] + 0.5) / (df[i] + 0.5)) * (((k1 + 1) * f[t_idx, d_idx]) / (k1 * (1 - b + b * dl[d_idx] / avgdl) + f[t_idx, d_idx])) #* (((k2 + 1) * fq[i]) / (k2 + fq[i]))
+                          
+              indices = np.argsort(doc_score, axis=0)[::-1]
+              if not np.max(doc_score) == 0:
+                  doc_score = doc_score / np.max(doc_score)
+              
+              doc_score = doc_score[doc_score >= tol]
+              
+              return indices[:len(doc_score)], doc_score
+          
+      queries = [
+          'outright purchases',
+          'businessmen and officials',
+          'market expectations',
+          'domestic economy',
+          'dividend which will be paid to the Dutch state',
+          'market conditions and operations',
+          'net profit of business',
+          'loss of the companies this year',
+          'was the controversy solved',
+          'what are the best prices'
+      ]
+
+      tolerances = [0.1, 0.2,
+                  0.3, 0.4, 0.5,
+                  0.6, 0.7, 0.8,
+                  0.9]
+
+      import matplotlib.pyplot as plt
+      from scipy.integrate import trapz
+
+      def precision_recall(queries, tolerances, schema='TF', k=0):
+          all_relevant_docs = []
+          
+          for query in queries:
+              _, scores = send_query(query, schema=schema, tol=0, debugging=False)
+              scores = scores[scores > 0]
+              all_relevant_docs.append(len(scores))
+          
+          precision, recall = np.zeros(len(tolerances)), np.zeros(len(tolerances))
+          
+          tol_idx, query_idx = 0, 0
+          for tol in tolerances:
+              query_idx = 0
+              for query in queries:
+                  indices, scores = send_query(query, schema=schema, tol=tol, debugging=False)
+                  aux = len(indices)
+                  
+                  precision[tol_idx] = precision[tol_idx] + len(scores[scores > 0.9]) / aux
+                  recall[tol_idx] = recall[tol_idx] + aux / all_relevant_docs[query_idx]
+                  
+                  query_idx = query_idx + 1
+              
+              tol_idx = tol_idx + 1
+              
+          precision = precision / len(queries)
+          recall = recall / len(queries)
+          
+          #print("Precision: ", precision)
+          #print("Recall: ", recall)
+          
+          fpr = 1 - precision
+          tpr = recall
+          auc = trapz(tpr[np.argsort(tpr)], x=fpr[np.argsort(fpr)])
+          
+          plt.scatter(recall, precision)
+          plt.plot(recall, precision, label=f'AUC: {auc}')
+          plt.title(f'Queries with {schema}')
+          plt.xlabel('Recall')
+          plt.ylabel('Precision')
+          plt.xticks(np.arange(0.1, 1.1, 0.1))
+          plt.yticks(np.arange(0.1, 1.1, 0.1))
+          plt.legend()
+          plt.show()
+          
+      precision_recall(queries, tolerances, schema='TF')
+      precision_recall(queries, tolerances, schema='TF-IDF')
+      precision_recall(queries, tolerances, schema='Okapi')
+    </code></pre>
+    <pre hidden><code id="householderGivensCode" class="python" hidden>
+      import numpy as np
+      from numpy import linalg as la
+      import matplotlib.pyplot as plt
+
+      class Householder:
+        def __init__(self, k, x):
+            self.x = x
+            self.k = k
+            self.n = x.shape[0]
+            self.solve()
+            
+        def solve(self):
+            e = np.zeros(self.n)
+            e[self.k] = 1
+            
+            self.v = self.x - la.norm(self.x) * e
+            self.vp = np.array([1, -self.v[0] / self.v[1]])
+            self.pvx = self.x - np.dot(2 * np.dot(self.x, self.v) / la.norm(self.v) ** 2, self.v)
+            self.prvx = la.norm(np.dot(np.dot(self.x, self.v) / la.norm(self.v) ** 2, self.v))
+            
+        def plot(self, scale_coeff=3):
+            if self.n == 2:
+                fig = plt.figure(figsize=(15, 5))
+                ax = fig.add_subplot(121)
+                ax.quiver(0, 0, self.x[0], self.x[1], angles='xy', scale_units='xy', scale=1, label='x')
+                
+                ax.quiver(0, 0, self.v[0], self.v[1], angles='xy', scale_units='xy', scale=1, label='v', color='blue')
+                ax.plot([-2 * self.v[0], 2 * self.v[0]], [-2 * self.v[1], 2 * self.v[1]], linestyle='dotted', label='Sp{v}')
+                ax.quiver(0, 0, self.vp[0], self.vp[1], angles='xy', scale_units='xy', scale=1, label='v_orthogonal', color='green')
+                ax.plot([-2 * self.vp[0], 2 * self.vp[0]], [-2 * self.vp[1], 2 * self.vp[1]], linestyle='dotted', label='Sp{v_orthogonal}')
+                ax.quiver(0, 0, self.pvx[0], self.pvx[1], angles='xy', scale_units='xy', scale=1, label='PvX', color='red')
+                #plt.quiver(self.v[0], self.v[1], self.pvx[0], self.pvx[1], angles='xy', scale_units='xy', label='PvX', scale=1, color='red')
+                
+                ax.legend()
+                
+                ax.set_xlim(-scale_coeff, scale_coeff)
+                ax.set_ylim(-scale_coeff, scale_coeff)
+                ax.grid(True)
+            elif self.n == 3:
+                self.vp = self.x - np.dot((np.dot(self.x, self.v) / la.norm(self.v)), self.v)
+                
+                fig = plt.figure(figsize=(10, 5))
+                ax1 = fig.add_subplot(121, projection='3d')
+                
+                ax1.quiver(0, 0, 0, self.x[0], self.x[1], self.x[2], label='x', color='black')
+                ax1.quiver(0, 0, 0, self.v[0], self.v[1], self.v[2], label='v', color='blue')
+                ax1.plot([-2 * self.v[0], 2 * self.v[0]], [-2 * self.v[1], 2 * self.v[1]], [-2 * self.v[2], 2 * self.v[2]], linestyle='dotted', label='Sp{v}')
+                ax1.quiver(0, 0, 0, self.vp[0], self.vp[1], self.vp[2], label='v_orthogonal', color='green')
+                ax1.plot([-2 * self.vp[0], 2 * self.vp[0]], [-2 * self.vp[1], 2 * self.vp[1]], [-2 * self.vp[2], 2 * self.vp[2]], linestyle='dotted', label='Sp{v_orthogonal}')
+                ax1.quiver(0, 0, 0, self.pvx[0], self.pvx[1], self.pvx[2], label='pvx', color='red')
+
+                ax1.legend()
+                
+                ax1.set_xlim(-5, 5)
+                ax1.set_ylim(-5, 5)
+                ax1.set_zlim(-5, 5)
+
+    class Givens:
+        def __init__(self, i, k, x):
+            self.i = i - 1
+            self.k = k - 1
+            self.x = x
+            self.n = x.shape[0]
+            
+            self.solve()
+            
+        def solve(self):
+            self.c = np.sqrt(self.x[self.i] ** 2 / (self.x[self.i] ** 2 + self.x[self.k] ** 2))
+            #self.s = np.sqrt(1 - self.c ** 2)
+            self.s = -self.c * (self.x[self.k] / self.x[self.i])
+            self.J = np.eye(self.x.shape[0])
+            
+            self.J[self.i, self.i] = self.c
+            self.J[self.i, self.k] = self.s
+            self.J[self.k, self.i] = -self.s
+            self.J[self.k, self.k] = self.c
+            
+        def plot(self, scale_coeff=3):
+            if self.n == 2:
+                fig = plt.figure(figsize=(15, 5))
+                ax = fig.add_subplot(121)
+                
+                ax.set_xlim(-scale_coeff, scale_coeff)
+                ax.set_ylim(-scale_coeff, scale_coeff)
+                ax.grid(True)
+                
+                ax.quiver(0, 0, self.x[0], self.x[1], angles='xy', scale_units='xy', scale=1, label='x')
+                
+                x_rotated = np.dot(self.J, self.x)
+                ax.quiver(0, 0, x_rotated[0], x_rotated[1], angles='xy', scale_units='xy', scale=1, color='blue', label='x_rotated')
+                
+                ax.legend()
+            if self.n == 3:
+                fig = plt.figure(figsize=(15, 5))
+                ax = fig.add_subplot(121, projection='3d')
+                
+                ax.set_xlim(-scale_coeff, scale_coeff)
+                ax.set_ylim(-scale_coeff, scale_coeff)
+                ax.set_zlim(-scale_coeff, scale_coeff)
+                ax.grid(True)
+                
+                ax.quiver(0, 0, 0, self.x[0], self.x[1], self.x[2], color='black', label='x')
+                
+                x_rotated = np.dot(self.J, self.x)
+                ax.quiver(0, 0, 0, x_rotated[0], x_rotated[1], x_rotated[2], color='blue', label='x_rotated')
+                
+                ax.legend()
+    </code></pre>
+    <pre hidden><code id="kaczmarzCode" class="python" hidden>
+      import numpy as np
+      from numpy import linalg as la
+      import matplotlib.pyplot as plt
+      from matplotlib.animation import FuncAnimation
+
+      %matplotlib notebook
+      n = 3
+      A = np.random.randint(2, 4, size=(n, n))
+      while np.linalg.matrix_rank(A) < n:
+          A = np.random.randint(2, 4, size=(n, n))
+      b = np.random.randint(2, 4, size=(n,))
+
+      x0 = np.zeros(n)
+      xLS = la.solve(A, b)
+      ax = plt.axes(projection='3d')
+      ax.scatter(x0[0], x0[1], x0[2], color='black', label='x0')
+      ax.scatter(xLS[0], xLS[1], xLS[2], color='red', label='xLS')
+
+      a1 = A[0] / la.norm(A[0])
+      a2 = A[1] / la.norm(A[1])
+      a3 = A[2] / la.norm(A[2])
+
+      ax.plot([0, a1[0]], [0, a1[1]], [0, a1[2]], label='a1')
+      ax.plot([0, a2[0]], [0, a2[1]], [0, a2[2]], label='a2')
+      ax.plot([0, a3[0]], [0, a3[1]], [0, a3[2]], label='a3')
+
+      x_lim_inf = np.min((xLS[0], x0[0])) - .25
+      x_lim_sup = np.min((xLS[0], x0[0])) + .25
+      y_lim_inf = np.min((xLS[1], x0[1])) - .25
+      y_lim_sup = np.min((xLS[1], x0[1])) + .25
+
+      x_plt = np.linspace(x_lim_inf, x_lim_sup, 10)
+      y_plt = np.linspace(y_lim_inf, y_lim_sup, 10)
+
+      X, Y = np.meshgrid(x_plt, y_plt)
+
+      Z_H1 = np.zeros_like(X)
+      Z_H2 = np.zeros_like(X)
+      Z_H3 = np.zeros_like(X)
+
+      for i in range(len(X)):
+          for j in range(len(X[0])):
+              Z_H1[i, j] = (b[0] - A[0, 0] * X[i, j] - A[0, 1] * Y[i, j]) / A[0, 2]
+              Z_H1[i, j] = (b[1] - A[1, 0] * X[i, j] - A[1, 1] * Y[i, j]) / A[1, 2]
+              Z_H1[i, j] = (b[2] - A[2, 0] * X[i, j] - A[2, 1] * Y[i, j]) / A[2, 2]
+              
+      ax.plot_surface(X, Y, Z_H1, alpha=0.5, label='H1')
+      ax.plot_surface(X, Y, Z_H2, alpha=0.5, label='H2')
+      ax.plot_surface(X, Y, Z_H3, alpha=0.5, label='H3')
+      #ax.legend()
+
+      nr_it = 10
+
+      x = x0.copy()
+      for i in range(nr_it):
+          x1 = x - ((np.dot(x, A[0]) - b[0]) / (la.norm(A[0]) ** 2)) * A[0]
+          
+          x_plt = [x1[0], x[0]]
+          y_plt = [x1[1], x[1]]
+          z_plt = [x1[2], x[2]]
+          
+          ax.plot3D(x_plt, y_plt, z_plt, linestyle='dashed')
+          
+          x2 = x1 - ((np.dot(x1, A[1]) - b[1]) / (la.norm(A[1]) ** 2)) * A[1]
+          
+          x_plt = [x1[0], x2[0]]
+          y_plt = [x1[1], x2[1]]
+          z_plt = [x1[2], x2[2]]
+          
+          ax.plot3D(x_plt, y_plt, z_plt, linestyle='dashed')
+          
+          x3 = x2 - ((np.dot(x2, A[2]) - b[2]) / (la.norm(A[2]) ** 2)) * A[2]
+          
+          x_plt = [x2[0], x3[0]]
+          y_plt = [x2[1], x3[1]]
+          z_plt = [x2[2], x3[2]]
+          
+          ax.plot3D(x_plt, y_plt, z_plt, linestyle='dashed')
+          
+          x = x3.copy()
+
+        class Kaczmarz2D:
+          def __init__(self, k):
+              self.n = 2
+              self.k = k
+              self.x = np.zeros(self.n)
+      
+              self.A = np.random.randint(2, 4, size=(self.n, self.n))
+              while la.matrix_rank(self.A) < self.n:
+                  self.A = np.random.randint(2, 4, size=(self.n, self.n))
+      
+              self.b = np.random.randint(2, 4, size=(self.n,))
+      
+              self.xLS = la.solve(self.A, self.b)
+              
+              self.solve()
+              
+          def solve(self):
+              self.x_history = []
+              self.x_history.append(self.x.copy())
+              
+              for i in range(self.k):
+                  for j in range(self.n):
+                      denominator = la.norm(self.A[j]) ** 2
+                      if denominator == 0:
+                          continue
+                          
+                      numerator = self.b[j] - np.dot(self.A[j], self.x)
+                      projection = numerator / denominator * self.A[j]
+                      
+                      self.x += projection
+                      self.x_history.append(self.x.copy())
+                      
+              self.plot()
+          
+          def plot_frame(self, frame_idx):
+              plt.clf()
+              
+              plt.title(f'Frame: {frame_idx} (k = {self.k})')
+              plt.grid(True)
+              plt.xlim(-3, 3)
+              plt.ylim(-3, 3)
+      
+              plt.plot([self.xLS[0], self.x_history[1][0]], [self.xLS[1], self.x_history[1][1]], linestyle='dotted')
+              plt.plot([self.xLS[0], self.x_history[2][0]], [self.xLS[1], self.x_history[2][1]], linestyle='dotted')
+              
+              plt.scatter(self.xLS[0], self.xLS[1], color='red', label='xLS')
+              plt.scatter(self.x_history[frame_idx][0], self.x_history[frame_idx][1], color='blue', label='x0')
+              
+              plt.legend()
+          
+          def plot(self):
+              fig = plt.figure()
+              
+              animation = FuncAnimation(fig, self.plot_frame, frames=len(self.x_history), interval=200)
+              animation.save('animation2D.mp4')
+
+        class Kaczmarz3D:
+          def __init__(self, k):
+              self.n = 3
+              self.k = k
+              
+              self.A = np.random.randint(2, 4, size=(self.n, self.n))
+              while la.matrix_rank(self.A) < self.n:
+                  self.A = np.random.randint(2, 4, size=(self.n, self.n))
+                  
+              self.b = np.random.randint(2, 4, size=(self.n,))
+              
+              self.x = np.zeros(self.n)
+              self.xLS = la.solve(self.A, self.b)
+              
+              self.solve()
+              
+          def solve(self):
+              self.x_history = []
+              self.x_history.append(self.x.copy())
+              
+              for i in range(self.k):
+                  for j in range(self.n):
+                      denominator = la.norm(self.A[j]) ** 2
+                      if denominator == 0:
+                          continue
+                          
+                      numerator = self.b[j] - np.dot(self.A[j], self.x)
+                      projection = numerator / denominator * self.A[j]
+                      
+                      self.x += projection
+                      self.x_history.append(self.x.copy())
+                      
+              self.plot()
+                      
+          def plot_frame(self, frame_idx):
+              self.ax.clear()
+              
+              self.ax.set_xlim(-3, 3)
+              self.ax.set_ylim(-3, 3)
+              self.ax.set_zlim(-3, 3)
+              
+              x_plt = np.linspace(self.xLS[0] - self.x_history[1][0] * 3, self.xLS[0] + self.x_history[1][0] * 3)
+              y_plt = np.linspace(self.xLS[1] - self.x_history[1][1] * 3, self.xLS[1] + self.x_history[1][1] * 3)
+              X, Y = np.meshgrid(x_plt, y_plt)
+              Z = (-self.A[0, 0] * X - self.A[0, 1] * Y + self.b[0]) / self.A[0, 2]
+              
+              self.ax.plot_surface(X, Y, Z, alpha=0.2)
+              
+              x_plt = np.linspace(self.xLS[0] - self.x_history[2][0] * 3, self.xLS[0] + self.x_history[2][0] * 3)
+              y_plt = np.linspace(self.xLS[1] - self.x_history[2][1] * 3, self.xLS[1] + self.x_history[2][1] * 3)
+              X, Y = np.meshgrid(x_plt, y_plt)
+              Z = (-self.A[1, 0] * X - self.A[1, 1] * Y + self.b[1]) / self.A[1, 2]
+              
+              self.ax.plot_surface(X, Y, Z, alpha=0.2)
+              
+              x_plt = np.linspace(self.xLS[0] - self.x_history[3][0] * 3, self.xLS[0] + self.x_history[3][0] * 3)
+              y_plt = np.linspace(self.xLS[1] - self.x_history[3][1] * 3, self.xLS[1] + self.x_history[3][1] * 3)
+              X, Y = np.meshgrid(x_plt, y_plt)
+              Z = (-self.A[2, 0] * X - self.A[2, 1] * Y + self.b[2]) / self.A[0, 2]
+              
+              self.ax.plot_surface(X, Y, Z, alpha=0.2)
+              
+              self.ax.scatter(self.xLS[0], self.xLS[1], self.xLS[2], color='red', label='xLS')
+              self.ax.scatter(self.x_history[frame_idx][0], self.x_history[frame_idx][1], self.x_history[frame_idx][2], color='blue', label='x')
+                      
+          def plot(self):
+              fig = plt.figure()
+              self.ax = fig.add_subplot(111, projection='3d')
+              
+              animation = FuncAnimation(fig, self.plot_frame, frames=len(self.x_history), interval=200)
+              animation.save('animation3D.mp4')
+    </code></pre>
+    <pre hidden><code id="neuralNetworkCode" class="python" hidden>
+      import numpy as np
+                      
+      class OneHotEncode:
+        def __init__(self, y):
+            self.y_hot = np.zeros((y.shape[0], np.max(y) + 1))
+            self.y_hot[np.arange(y.shape[0]), y] = 1
+            self.y_hot = self.y_hot.T
+                  
+      class NeuralNetwork:
+          def build(self, layers):
+              self.layers = layers
+          
+          def init_params(self):
+              self.W = []
+              self.b = []
+              np.random.seed(0)
+              
+              if self.optimizer == 'momentum':
+                  self.momentum = []
+                  self.bias_momentum = []
+                  self.beta = 0.9
+              
+              for i in range(len(self.layers) - 1):
+                  self.W.append(np.random.rand(self.layers[i + 1], self.layers[i]) - 0.5)
+                  self.b.append(np.random.rand(self.layers[i + 1], 1) - 0.5)
+                  
+                  if self.optimizer == 'momentum':
+                      self.momentum.append(np.zeros((self.W[-1].shape[0], self.W[-1].shape[1])))
+                      self.bias_momentum.append(np.zeros((self.b[-1].shape[0], self.b[-1].shape[1])))
+                  
+          def ReLU(self, Z):
+              return np.maximum(Z, 0)
+          
+          def ReLU_deriv(self, Z):
+              return Z > 0
+          
+          def Leaky_ReLU(self, Z):
+              return np.maximum(Z, 0.01 * Z)
+          
+          def Leaky_ReLU_deriv(self, Z):
+              Z_deriv = Z.copy()
+              Z_deriv[Z_deriv > 0] = 1
+              Z_deriv[Z_deriv < 0] = 0.01
+              return Z_deriv
+          
+          def tanh(self, Z):
+              exp_z, exp_minus_z = np.exp(Z), np.exp(-Z)
+              return (exp_z - exp_minus_z) / (exp_z + exp_minus_z)
+          
+          def tanh_deriv(self, Z):
+              return 1 - np.square(self.tanh(Z))
+          
+          def softmax(self, Z):
+              return np.exp(Z) / np.sum(np.exp(Z), axis=0)
+          
+          def forward_prop(self, X):
+              self.Z = []
+              self.A = []
+              for i in range(len(self.layers) - 1):
+                  if i == 0:
+                      #print(self.b[i].shape)
+                      self.Z.append(np.dot(self.W[i], X.T) + self.b[i])
+                  else:
+                      self.Z.append(np.dot(self.W[i], self.A[i - 1]) + self.b[i])
+                  
+                  if i == len(self.layers) - 2:
+                      self.A.append(self.softmax(self.Z[i]))
+                  else:
+                      #self.A.append(self.ReLU(self.Z[i]))
+                      #self.A.append(self.Leaky_ReLU(self.Z[i]))
+                      self.A.append(self.tanh(self.Z[i]))
+                      
+                      if self.batch_standardization:
+                          u = np.mean(self.A[-1])
+                          s = np.sqrt(np.mean(np.square(self.A[-1] - u)))
+                          self.A[-1] = (self.A[-1] - u) / s
+                      
+          def backward_prop(self, X, y):
+              self.dZ, self.dW, self.db = [], [], []
+              m = X.shape[0]
+              
+              for i in range(len(self.layers) - 1):
+                  if i == 0:
+                      self.dZ.append(self.A[-1] - y)
+                  else:
+                      #self.dZ.append(np.dot(self.W[-i].T, self.dZ[i - 1]) * self.ReLU_deriv(self.Z[-(i + 1)]))
+                      #self.dZ.append(np.dot(self.W[-i].T, self.dZ[i - 1]) * self.Leaky_ReLU_deriv(self.Z[-(i + 1)]))
+                      self.dZ.append(np.dot(self.W[-i].T, self.dZ[i - 1]) * self.tanh_deriv(self.Z[-(i + 1)]))
+                      
+                  if i == len(self.layers) - 2:
+                      self.dW.append((1 / m) * np.dot(self.dZ[i], X))
+                  else:
+                      self.dW.append((1 / m) * np.dot(self.dZ[i], self.A[-(i + 2)].T))
+                      
+                  self.db.append((1 / m) * np.sum(self.dZ[i]))
+                  
+          def gradient_descent(self):
+              for i in range(len(self.layers) - 1):
+                  self.W[i] = self.W[i] - self.learning_rate * self.dW[-(i + 1)]
+                  self.b[i] = self.b[i] - self.learning_rate * self.db[-(i + 1)]
+                  
+          def gd_momentum(self):
+              for i in range(len(self.layers) - 1):
+                  self.momentum[i] = self.beta * self.momentum[i] - self.learning_rate * self.dW[-(i + 1)]
+                  self.W[i] = self.W[i] + self.momentum[i]
+                  self.b[i] = self.b[i] - self.learning_rate * self.db[-(i + 1)]
+                  
+          def predict(self):
+              return np.argmax(self.A[-1], 0)
+          
+          def get_accuracy(self, predictions, y):
+              return np.sum(predictions == np.argmax(y, 0)) / y.shape[1]
+          
+          def evaluate(self, X_test, y_test):
+              self.forward_prop(X_test)
+              return self.get_accuracy(self.predict(), y_test)
+          
+          def save(self, path):
+              if not os.path.exists:
+                  os.mkdir(path)
+                  
+              for i in range(len(self.W)):
+                  np.savetxt(f'{path}/W{i + 1}.txt', self.W[i])
+                  np.savetxt(f'{path}/b{i + 1}.txt', self.b[i])
+                  
+          def load(self, path, batch_standardization=True):
+              count = int(len(os.listdir(path)) / 2)
+              
+              self.layers = []
+              for i in range(count + 1):
+                  self.layers.append(i)
+              
+              self.batch_standardization = batch_standardization
+                  
+              self.W = []
+              self.b = []
+              
+              for i in range(count):
+                  self.W.append(np.loadtxt(f'{path}/W{i + 1}.txt'))
+                  self.b.append(np.loadtxt(f'{path}/b{i + 1}.txt'))
+                  self.b[-1] = self.b[-1].reshape(-1, 1)
+                  
+          def fit(self, X_train, y_train, epochs, optimizer='gd', batch_standardization=True, learning_rate=0.1):
+              self.optimizer = optimizer
+              self.batch_standardization = batch_standardization
+              self.learning_rate = learning_rate
+              self.init_params()
+              
+              for i in range(epochs):
+                  self.forward_prop(X_train)
+                  self.backward_prop(X_train, y_train)
+                  if optimizer == 'gd':
+                      self.gradient_descent()
+                  elif optimizer == 'momentum':
+                      self.gd_momentum()
+                  
+                  if i % 25 == 0:
+                      self.forward_prop(X_train)
+                      print(self.get_accuracy(self.predict(), y_train))
+                      
+              print(self.get_accuracy(self.predict(), y_train))
+    </code></pre>
+    <pre hidden><code id="GMMCode" class="python" hidden>
+      import numpy as np
+      from scipy.stats import multivariate_normal
+
+      class GMM:
+          def fit(self, X, n_clusters, max_iter=100, tol=1e-6):
+              self.X = X
+              self.n_clusters = n_clusters
+              
+              self.n_samples, self.n_features = self.X.shape
+              
+              self.init_parameters()
+              
+              self.log_likelihoods = []
+              
+              for iteration in range(max_iter):
+                  self.e_step()
+                  self.m_step()
+                  self.compute_log_likelihood()
+                  
+                  if iteration > 0 and np.abs(self.log_likelihoods[-1] - self.log_likelihoods[-2]) < tol:
+                      break
+          
+          def init_parameters(self):
+              self.means = self.X[np.random.choice(self.n_samples, self.n_samples, replace=False)]
+              self.covariances = np.array([np.eye(self.n_features)] * self.n_clusters)
+              self.weights = np.full(self.n_clusters, 1 / self.n_clusters)
+              
+          def e_step(self):
+              self.gamma = np.zeros((self.n_samples, self.n_clusters))
+              
+              for k in range(self.n_clusters):
+                  pdf = multivariate_normal.pdf(self.X, mean=self.means[k], cov=self.covariances[k])
+                  self.gamma[:, k] = self.weights[k] * pdf
+                  
+              self.gamma = self.gamma / self.gamma.sum(axis=1, keepdims=True)
+              
+          def m_step(self):
+              N = self.gamma.sum(axis=0)
+              
+              self.means = np.dot(self.gamma.T, self.X) / N[:, np.newaxis]
+              
+              for k in range(self.n_clusters):
+                  diff = self.X - self.means[k]
+                  weighted_sum = np.dot(self.gamma[:, k] * diff.T, diff)
+                  self.covariances[k] = weighted_sum / N[k]
+                  
+              self.weights = N / self.n_samples
+              
+          def compute_log_likelihood(self):
+              self.log_likelihood = 0
+              
+              for k in range(self.n_clusters):
+                  pdf = multivariate_normal.pdf(self.X, mean=self.means[k], cov=self.covariances[k])
+                  self.log_likelihood += np.sum(np.log(pdf * self.weights[k]))
+                  
+              self.log_likelihoods.append(self.log_likelihood)
+    </code></pre>
+    <pre hidden><code id="hillClimbingCode" class="javascript" hidden>
+      export class HillClimbing {
+        constructor(boxes, restrictions) {
+            this.boxes = boxes;
+            this.restrictions = restrictions;
+        }
+    
+        initSelection() {
+            this.selection = [];
+            for (let i = 0; i < this.boxes.length; i++) {
+                this.selection.push(0);
+            }
+        }
+    
+        generateNeighbours(selection) {
+            var neighbours = [];
+            for (let i = 0; i < selection.length; i++) {
+                var neighbour = [...selection];
+                
+                if (neighbour[i] == 0)
+                    neighbour[i] = 1;
+                else
+                    neighbour[i] = 0;
+                
+                neighbours.push(neighbour);
+            }
+    
+            return neighbours;
+        }
+    
+        checkConstraints(selection) {
+            var mass = 0, objects = 0;
+            for (let i = 0; i < this.boxes.length; i++) {
+                if (selection[i]) {
+                    mass += this.boxes[i].mass;
+                    objects += 1;
+                }
+    
+                if (mass > this.restrictions.mass)
+                    return false;
+                if (objects > this.restrictions.objects)
+                    return false;
+            }
+    
+            return true;
+        }
+    
+        evaluateBoxes(selection) {
+            var mass = 0, value = 0;
+    
+            for (let i = 0; i < this.boxes.length; i++) {
+                if (selection[i]) {
+                    mass += this.boxes[i].mass;
+                    value += this.boxes[i].value;
+                }
+            }
+        
+            return [mass, value];
+        }
+    
+        solve() {
+            this.initSelection();
+            
+            var bestValue = 0;
+            var bestSelection = this.selection;
+            var bestChanged = false;
+            while (true) {
+                var neighbours = this.generateNeighbours(bestSelection);
+                
+                bestChanged = false;
+                for (let i = 0; i < neighbours.length; i++) {
+                    if (this.checkConstraints(neighbours[i])) {
+                        var parameters = this.evaluateBoxes(neighbours[i]);
+    
+                        if (parameters[1] > bestValue) {
+                            bestValue = parameters[1];
+                            bestSelection = neighbours[i];
+                            bestChanged = true;
+                        }
+                    }
+                }
+    
+                if (!bestChanged)
+                    break;
+            }
+    
+            return [bestSelection, bestValue];
+        }
+    }
+    </code></pre>
+    <pre hidden><code id="simulatedAnnealingCode" class="javascript" hidden>
+      export class SimulatedAnnealing {
+        constructor(boxes, restrictions) {
+            this.boxes = boxes;
+            this.restrictions = restrictions;
+        }
+    
+        initSelection() {
+            this.selection = [];
+    
+            for (let i = 0; i < this.boxes.length; i++) {
+                this.selection[i] = Math.floor(Math.random() * 2);
+            }
+        }
+    
+        generateNeighbour(selection) {
+            var auxSelection = [...selection];
+            var randPos = Math.floor(Math.random() * auxSelection.length);
+    
+            if (auxSelection[randPos] == 0)
+                auxSelection[randPos] = 1;
+            else
+                auxSelection[randPos] = 0;
+    
+            return auxSelection;
+        }
+    
+        evaluate(selection) {
+            var mass = 0, value = 0, objects = 0;
+    
+            for (let i = 0; i < selection.length; i++) {
+                if (selection[i] == 1) {
+                    mass += this.boxes[i].mass;
+                    value += this.boxes[i].value;
+    
+                    objects++;
+                }
+    
+                if (objects > this.restrictions.objects)
+                    return -1;
+    
+                if (mass > this.restrictions.mass)
+                    return -1;
+            }
+    
+            return value;
+        }
+    
+        probability(ev, ec, T) {
+            if (ev > ec)
+                return 1;
+    
+            return Math.exp(-(ev - ec) / T);
+        }
+    
+        solve(initialTemp, coolingCoeff, maxInternalIterations) {
+            this.initSelection();
+    
+            var T = initialTemp;
+            var internalIterations = 0;
+    
+            while (true) {
+                while (true) {
+                    var candidate = this.generateNeighbour(this.selection);
+                    var ev = this.evaluate(candidate), ec = this.evaluate(this.selection);                 
+                    
+                    if (ev > ec) {
+                        this.selection = candidate;
+                    }
+                    else {
+                        if (Math.random() < this.probability(ev, ec, T) && ev != -1)
+                            this.selection = candidate;
+                    }
+    
+                    internalIterations++;
+                    if (internalIterations >= maxInternalIterations) {
+                        internalIterations = 0;
+                        break;
+                    }
+                }
+    
+                T -= coolingCoeff;
+                coolingCoeff += 1;
+    
+                if (T <= 0)
+                    break;
+            }
+    
+            return [this.selection, this.evaluate(this.selection)];
+        }
+      }
+    </code></pre>
+    <pre hidden><code id="geneticAlgorithmCode" class="javascript" hidden>
+      export class Genetic {
+        constructor(boxes, restrictions) {
+            this.boxes = boxes;
+            this.restrictions = restrictions;
+            this.population = [];
+    
+            this.bestIndividual = null;
+            this.bestIndividualFitness = -1;
+        }
+    
+        countOnes(genotype) {
+            var c = 0;
+    
+            for (let i = 0; i < genotype.length; i++) {
+                if (genotype[i] == 1)
+                    c++;
+            }
+    
+            return c;
+        }
+    
+        generateUniformIndividual() {
+            var genotype = Array(this.boxes.length).fill(0);
+    
+            while (this.countOnes(genotype) < this.boxes.length / 2) {
+                var rand = Math.floor(Math.random() * this.boxes.length);
+    
+                if (genotype[rand] == 0)
+                    genotype[rand] = 1;
+            }
+    
+            return genotype;
+        }
+    
+        equalIndividuals(individual1, individual2) {
+            for (let i = 0; i < individual1.length; i++) {
+                if (individual1[i] != individual2[i])
+                    return false;
+            }
+    
+            return true;
+        }
+    
+        individualExists(individual, individualIndex) {
+            for (let i = 0; i < this.population.length; i++) {
+                if (i != individualIndex) {
+                    if (this.equalIndividuals(individual, this.population[i]))
+                        return true;
+                }
+            }
+    
+            return false;
+        }
+    
+        initPopulation(popSize) {
+            while (this.population.length < popSize) {
+                var individual = this.generateUniformIndividual();
+                
+                if (!this.individualExists(individual))
+                    this.population.push(individual);
+            }
+        }
+    
+        fitness(individual) {
+            var objects = 0, mass = 0, value = 0;
+            for (let i = 0; i < individual.length; i++) {
+                if (individual[i] == 1) {
+                    mass += this.boxes[i].mass;
+                    value += this.boxes[i].value;
+    
+                    objects++;
+                }
+    
+                if (objects > this.restrictions.objects)
+                    return 0.5;
+    
+                if (mass > this.restrictions.mass)
+                    return 0.5;
+            }
+    
+            return value;
+        }
+    
+        lookForBestIndividual() {
+            for (let i = 0; i < this.population.length; i++) {
+                if (this.bestIndividual == null)
+                    this.bestIndividual = this.population[i];
+    
+                var fitnessValue = this.fitness(this.population[i]);
+                if (fitnessValue > this.bestIndividualFitness) {
+                    this.bestIndividual = this.population[i];
+                    this.bestIndividualFitness = fitnessValue;
+                }
+            }
+    
+            this.fitnessEvolution.push(this.bestIndividualFitness);
+        }
+    
+        getPopulationRelativeFitness() {
+            var fitnesses = [];
+            var maxValue = 0.1;
+    
+            for (let i = 0; i < this.population.length; i++) {
+                var value = this.fitness(this.population[i]);
+                fitnesses.push(value);
+    
+                if (value > maxValue)
+                    maxValue = value;
+            }
+    
+            var sum = 0;
+            for (let i = 0; i < this.population.length; i++) {
+                fitnesses[i] = fitnesses[i] / maxValue;
+                sum += fitnesses[i];
+            }
+    
+            for (let i = 0; i < this.population.length; i++) {
+                fitnesses[i] = fitnesses[i] / sum;
+            }
+            
+            return fitnesses;
+        }
+    
+        selectParent() {
+            var rand = Math.random();
+            var relativeFitnesses = this.getPopulationRelativeFitness();
+            var cumulativeProbability = 0;
+            
+            for (let i = 0; i < this.population.length; i++) {
+                cumulativeProbability += relativeFitnesses[i];
+    
+                if (cumulativeProbability > rand)
+                    return i;
+            }
+    
+            return -1;
+        }
+    
+        selectParents() {
+            var parents = [];
+    
+            while (parents.length < this.population.length) {
+                var parent1 = this.selectParent();
+                var parent2 = this.selectParent();
+    
+                if (parent1 == parent2)
+                    continue;
+                else {
+                    parents.push(parent1); parents.push(parent2);
+                }
+            }
+    
+            return parents;
+        }
+    
+        buildNewGeneration() {
+            var parents = this.selectParents();
+            var newPopulation = [];
+    
+            for (let i = 0; i < this.population.length; i += 2) {
+                var rand1 = Math.floor(Math.random() * (this.population[i].length - 1));
+    
+                while (rand1 == 0) {
+                    rand1 = Math.floor(Math.random() * this.population[i].length);
+                }
+    
+                var rand2 = Math.floor(Math.random() * (this.population[i].length - 1))
+    
+                while (rand2 == 0 || rand1 == rand2) {
+                    rand2 = Math.floor(Math.random() * (this.population[i].length - 1))
+                }
+                        
+                var child1 = [], child2 = [];
+                for (let j = 0; j < this.population[i].length; j++) {
+                    if (j < rand1)
+                        child1.push(this.population[parents[i]][j]);
+                    else
+                        child1.push(this.population[parents[i + 1]][j])
+    
+                    if (j < rand2)
+                        child2.push(this.population[parents[i]][j]);
+                    else
+                        child2.push(this.population[parents[i + 1]][j]);
+                }
+                
+                newPopulation.push(child1);
+                newPopulation.push(child2);
+            }
+            
+            this.population = newPopulation;
+        }
+    
+        applyMutations() {
+            for (let i = 0; i < this.population.length; i++) {
+                var rand = Math.floor(Math.random * this.population[i].length);
+    
+                if (this.population[i][rand] == 0)
+                    this.population[i][rand] = 1;
+                else
+                    this.population[i][rand] = 0;
+            }
+        }
+    
+        solve(populationSize, maxGenerations, mutationsRate) {
+            this.initPopulation(populationSize);
+            this.fitnessEvolution = [0];
+            this.lookForBestIndividual();
+            
+            var t = 0;
+    
+            while (t < maxGenerations) {
+                t++;
+    
+                this.buildNewGeneration();
+    
+                if (t % mutationsRate == 0)
+                    this.applyMutations();
+    
+                this.lookForBestIndividual();
+            }
+            
+            return [this.bestIndividual, this.bestIndividualFitness];
+        }
+      }
+    </code></pre>
+
+    <div
+      id="phoneToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      style="width: 200px"
+    >
+      <div class="d-flex justify-content-between toast-header">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-telephone"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+          />
+        </svg>
+        <strong class="ms-1">Phone number</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body">+40729665059</div>
+    </div>
+
+    <div
+      id="emailToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      style="width: 200px"
+    >
+      <div class="d-flex justify-content-between toast-header">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-envelope"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+          />
+        </svg>
+        <strong class="ms-1">Email</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body">constantinescu.mario_06_05@yahoo.com</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

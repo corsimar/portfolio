@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link href="index.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <script src="simulationWrapper.js"></script>
+    <script src="settings.js"></script>
+    <script src="element.js"></script>
+    <script src="vector.js"></script>
+    <script src="visualVector.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+          <a href="../index.html"
+            ><button class="btn btn-primary">Back to portfolio</button></a
+          >
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div
+          class="col d-flex justify-content-center align-items-center"
+          style="column-gap: 24px"
+        >
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="separationRadius"
+              min="8"
+              placeholder="Separation Radius"
+              onchange="updateParameters(event)"
+            />
+            <label>Separation Radius</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="alignmentRadius"
+              min="8"
+              placeholder="Alignment Radius"
+            />
+            <label>Alignment Radius</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="cohesionRadius"
+              min="8"
+              placeholder="Cohesion Radius"
+            />
+            <label>Cohesion Radius</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center" style="column-gap: 24px">
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="separationWeight"
+              min="0"
+              step="0.05"
+              placeholder="Separation Radius"
+            />
+            <label>Separation Weight</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="alignmentWeight"
+              min="0"
+              step="0.05"
+              placeholder="Alignment Radius"
+            />
+            <label>Alignment Weight</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="cohesionWeight"
+              min="0"
+              step="0.05"
+              placeholder="Cohesion Radius"
+            />
+            <label>Cohesion Weight</label>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center mt-3">
+        <div id="simulationWrapper" class="wrapper"></div>
+      </div>
+      <div class="row d-flex justify-content-center mt-3">
+        <div
+          class="d-flex justify-content-between align-items-center"
+          style="width: 90vw; padding: 0"
+        >
+          <div class="d-flex" style="column-gap: 16px">
+            <button class="btn btn-primary" onclick="addElement()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-plus"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                />
+              </svg>
+            </button>
+            <button class="btn btn-primary" onclick="removeElement()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-dash"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"
+                />
+              </svg>
+            </button>
+          </div>
+          <p id="elementsCount"></p>
+          <div class="d-flex" style="column-gap: 16px">
+            <button class="btn btn-primary" onclick="shrinkWrapperHeight()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-up"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"
+                />
+              </svg>
+            </button>
+            <button class="btn btn-primary" onclick="expandWrapperHeight()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="height: 100px"></div>
+    </div>
+
+    <div id="element" class="element" hidden></div>
+
+    <div id="visualVector" class="visual-vector" hidden>
+      <div class="left-arrow"></div>
+      <div class="right-arrow"></div>
+    </div>
+  </body>
+</html>

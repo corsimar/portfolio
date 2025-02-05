@@ -1,0 +1,96 @@
+.button {
+  width: 120px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button > svg {
+  display: none;
+}
+
+.active-button {
+  background-color: #4395ff;
+  color: white;
+}
+
+.active-button > svg {
+  display: block;
+}
+
+.button,
+.active-button {
+  transition-duration: 0.3s;
+}
+
+.technologies {
+  gap: 12px;
+}
+
+.hackathon-card {
+  width: 50%;
+}
+
+.project-card {
+  display: flex;
+}
+
+.project-content {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+.project-image {
+  width: 350px;
+  min-width: 350px;
+  height: 200px;
+}
+
+.project-description {
+  font-size: 16px !important;
+}
+
+.bg-github {
+  background-color: #7a7a7a !important;
+  color: white !important;
+}
+
+.project-code {
+  font-size: 16px;
+}
+
+.toast {
+  transition-duration: 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+  .ms-5 {
+    margin-left: 0 !important;
+  }
+
+  .hackathon-card {
+    width: 100%;
+  }
+
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-image {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .project-content {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .project-code {
+    font-size: 12px;
+  }
+}

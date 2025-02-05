@@ -1,0 +1,62 @@
+.wrapper {
+  width: 90vw;
+  border: 1px solid #1198ff;
+  border-radius: 5px;
+}
+
+.settings {
+  column-gap: 24px;
+}
+
+.element {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: green;
+  position: absolute;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.visual-vector {
+  width: 32px;
+  height: 4px;
+  background-color: green;
+  position: absolute;
+  left: 100px;
+}
+
+.left-arrow,
+.right-arrow {
+  width: 12px;
+  height: 4px;
+  background-color: green;
+  position: relative;
+}
+
+.left-arrow {
+  left: 24px;
+  bottom: 4px;
+  transform: rotate(45deg);
+}
+
+.right-arrow {
+  left: 24px;
+  bottom: 1px;
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 600px) {
+  label {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  label {
+    font-size: 10px;
+  }
+}
