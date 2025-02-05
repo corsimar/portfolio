@@ -228,6 +228,8 @@ function updateProjectCode(event) {
 
   if (target[0].localName === "path") target = target.parent();
   if (target[0].localName === "svg") target = target.parent();
+  if (target[0].localName === "span" && !target.hasClass("badge"))
+    target = target.parent();
 
   projectCode.html($(target.attr("data-code")).html());
 }
