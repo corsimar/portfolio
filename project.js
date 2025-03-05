@@ -19,7 +19,7 @@ class Project {
 
 function expandCategory(event) {
   let target = $(event.target);
-
+  
   if (!target.hasClass("lead")) target = target.parent();
   if (!target.hasClass("lead")) target = target.parent();
 
@@ -108,7 +108,8 @@ function displayProjects() {
     if (
       projects[i].category != "Machine Learning" &&
       projects[i].category != "Artificial Intelligence Algorithms" &&
-      projects[i].category != "Bachelor Graduation Project"
+      projects[i].category != "Bachelor Graduation Project" &&
+      projects[i].category != "Natural Language Processing"
     ) {
       content
         .children()
@@ -158,6 +159,11 @@ function displayProjects() {
       linkElement.removeClass("d-none");
       linkElement.addClass("d-flex");
       linkElement.attr("href", projects[i].link);
+      if (projects[i].category === "Natural Language Processing") {
+        let linkContent = linkElement.children().eq(0);
+        linkContent.empty();
+        linkContent.text("See project");
+      }
     }
 
     if (projects[i].code != null) {
@@ -250,6 +256,7 @@ function switchModalFullscreen() {
 }
 
 const projectCategories = [
+  "Natural Language Processing",
   "Bachelor Graduation Project",
   "Interactive",
   "Machine Learning",
@@ -259,6 +266,17 @@ const projectCategories = [
 ];
 
 const projects = [
+  new Project(
+    "LLM from scratch with character tokenization",
+    "Natural Language Processing",
+    [
+      getCategory("PyTorch"),
+    ],
+    "Key features <ul><li>Character tokenization</li><li>Batch sampling without replacement</li><li>Positional encoding</li><li>Causal self-attention</li><li>Multi-head attention</li><li>Residual / skip connections</li><li>Layer normalization</li><li>Flash attention</li><li>Clip the global norm of the gradients</li><li>Learning scheduler: cosine decay with warm-up</li><li>Weight decay</li><li>Gradient accumulation</li></ul>",
+    null,
+    "LLM-character-tokenization/index.html",
+    null
+  ),
   new Project(
     "Physics simulations controlled by hand gestures using web camera",
     "Bachelor Graduation Project",
@@ -359,7 +377,7 @@ const projects = [
     "randomForestCode"
   ),
   new Project(
-    "K-Nearest Neighbour with PCA - face recognition (from scratch)",
+    "K-Nearest Neighbor with PCA - face recognition (from scratch)",
     "Machine Learning",
     [getCategory("Python"), getCategory("OpenCV"), getCategory("NumPy")],
     "PCA is a <b>dimensionality reduction</b> technique that extracts the key features from the photos. Then, using the K-Nearest Neighbor model that I implemented from scratch I classify them by comparing them to the closest labeled examples.",
@@ -368,7 +386,7 @@ const projects = [
     "kNearestNeighboursCode"
   ),
   new Project(
-    "KMeans (from scratch)",
+    "K-Means (from scratch)",
     "Machine Learning",
     [getCategory("Python"), getCategory("NumPy"), getCategory("Clustering")],
     "I have implemented this clustering model in 2 alternatives. The first alternative consists in running the steps in this order: <b>calculate the centroids</b> and then <b>regroup the points</b> and the second alternative consists in the same steps but in reverse order.",

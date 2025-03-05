@@ -32,6 +32,7 @@ const categories = [
   new Category("Computer Vision", "#5064ff"),
   new Category("Artificial Neural Network", "#858585"),
   new Category("Django", "#2d6e30"),
+  new Category("PyTorch", "#ffa41b"),
 ];
 
 function getCategory(name) {

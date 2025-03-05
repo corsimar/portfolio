@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+    <title>LLM with character tokenization</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+          <a href="../index.html">
+            <button class="btn btn-primary">Back to portfolio</button>
+          </a>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+          <p class="lead">
+            LLM built from scratch using character tokenization
+          </p>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col d-flex flex-column align-items-start ms-3">
+          <p 
+            class="lead"
+            data-bs-toggle="collapse"
+            href="#implementation"
+            role="button"
+            aria-expanded="true"
+            onclick="onclickExpandableElement(event)"
+          >
+            Implementation
+          </p>
+          <div class="collapse show" id="implementation">
+            <div class="d-flex flex-wrap align-items-center" style="gap: 12px">
+              <p style="margin: 0">Python files</p>
+              <div class="btn-group flex-wrap" role="group">
+                <input type="radio" class="btn-check" name="pythonfiles" id="llmBtn" autocomplete="off" onclick="showPythonFile(event)" checked>
+                <label class="btn btn-outline-primary" for="llmBtn">LLM.py</label>
+              
+                <input type="radio" class="btn-check" name="pythonfiles" id="modelUtilsBtn" autocomplete="off" onclick="showPythonFile(event)">
+                <label class="btn btn-outline-primary" for="modelUtilsBtn">model_utils.py</label>
+
+                <input type="radio" class="btn-check" name="pythonfiles" id="mainBtn" autocomplete="off" onclick="showPythonFile(event)">
+                <label class="btn btn-outline-primary" for="mainBtn">main.py</label>
+              </div>
+              <button class="btn btn-primary d-flex align-items-center" style="gap: 12px" data-bs-toggle="modal" data-bs-target="#modalDocumentation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg>
+                Key features
+              </button>
+            </div>
+            <div class="mt-3">
+              <label
+                  for="codeFontSize"
+                  class="form-label"
+                  id="codeFontSizeLabel"
+                  >Font size</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  min="10"
+                  max="18"
+                  id="codeFontSizeRange"
+                  oninput="changeCodeFontSize(event)"
+                />
+            </div>
+            <pre><code 
+              id="llm"
+              class="python project-code mt-3"
+            >
+    import torch
+    import torch.nn as nn
+    import torch.nn.functional as F
+    import inspect
+    import time
+    import math
+    from dataclasses import dataclass
+    
+    @dataclass
+    class Config:
+        block_size: int = 1024
+        vocab_path: str = 'data/vocabulary.txt',
+        vocab_size: int = len(open('data/vocabulary.txt', 'r', encoding='utf-8').readlines())
+        train_file_path: str = 'data/train.txt'
+        val_file_path: str = 'data/val.txt'
+        n_layer: int = 12
+        n_head: int = 12
+        n_embedded: int = 768
+        device: torch.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        dropout: float = 0.2
+        learning_rate: float = 3e-04
+        total_batch_size: int = 524288 # 2**19; in tokens
+        val_total_batch_size: int = 65536 # 2**16; in tokens
+        micro_batch_size: int = 8
+        generate_epochs: int = 25
+    
+    class LearningScheduler:
+        def __init__(self, scheduler='cosine_decay', min_lr=3e-05, max_lr=3e-04, warmup_steps=10, max_steps=50):
+            self.scheduler = scheduler
+            self.min_lr = min_lr
+            self.max_lr = max_lr
+            self.warmup_steps = warmup_steps
+            self.max_steps = max_steps
+        
+        def get_lr(self, step_idx):
+            if self.scheduler == 'cosine_decay':
+                # Increase linearly the learning rate at the beginning
+                if step_idx &lt self.warmup_steps:
+                    return self.max_lr * (step_idx + 1) / self.warmup_steps
+    
+                if step_idx &gt self.max_steps:
+                    return self.min_lr
+                
+                decay_ratio = (step_idx - self.warmup_steps) / (self.max_steps - self.warmup_steps)
+                assert 0 &lt= decay_ratio &lt= 1
+                coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # It starts with 1 and it is going to 0
+                
+                return self.min_lr + coeff * (self.max_lr - self.min_lr)
+    
+    @dataclass
+    class OptimizerConfig:
+        betas: list[float]
+        eps: float
+        weight_decay: float
+        lr_scheduler: LearningScheduler
+    
+    class Tokenizer:
+        def __init__(self, vocab_path, encoding='utf-8'):        
+            # Read data
+            vocab = open(vocab_path, 'r', encoding=encoding).read()
+            unique_chs = vocab.split('\n')
+            
+            # Encoding and decoding characters
+            self.chtoi = { ch:idx for idx, ch in enumerate(unique_chs) }
+            self.itoch = { idx:ch for ch, idx in self.chtoi.items() }
+            
+        def encode(self, str):
+            return [self.chtoi[ch] for ch in str if ch in self.chtoi]
+        
+        def decode(self, int_list):
+            return ''.join([self.itoch[i] for i in int_list])
+        
+    class DataLoader:
+        def __init__(self, config: Config, encoding='utf-8'):
+            self.config: Config = config
+            self.train_data = open(self.config.train_file_path, 'r', encoding=encoding).read()
+            self.train_data = torch.tensor([int(token) for token in self.train_data.split(' ')], dtype=torch.long)
+            self.val_data = open(self.config.val_file_path, 'r', encoding=encoding).read()
+            self.val_data = torch.tensor([int(token) for token in self.val_data.split(' ')], dtype=torch.long)
+            self.current_train_idx, self.current_val_idx = 0, 0
+            
+        def get_single_batch(self, split='train'):
+            # Sample batches without replacement
+            data = self.train_data if split == 'train' else self.val_data
+            current_idx = self.current_train_idx if split == 'train' else self.current_val_idx
+            
+            X = data[current_idx:current_idx+self.config.block_size+1]
+            current_idx += (self.config.block_size + 1)
+            if current_idx + self.config.block_size + 1 &gt len(data):
+                current_idx = 0
+                
+            if split == 'train':
+                self.current_train_idx = current_idx
+            else:
+                self.current_val_idx = current_idx
+                
+            return X
+            
+        def get_batch(self, split='train'):
+            # X -&gt cut the last element for each batch  
+            # y -&gt X shifted with one to the right and cut the first element for each batch
+            X = torch.stack([self.get_single_batch(split=split) for _ in range(self.config.micro_batch_size)])
+            y = X[:, 1:]
+            X = X[:, :-1]
+            X, y = X.to(device=self.config.device), y.to(device=self.config.device)
+            return X, y
+    
+    class CausalSelfAttention(nn.Module):
+        def __init__(self, config: Config):
+            super().__init__()
+            assert config.n_embedded % config.n_head == 0        
+            
+            # key, query and value for all heads
+            self.c_attention = nn.Linear(config.n_embedded, 3 * config.n_embedded)
+            self.c_projection = nn.Linear(config.n_embedded, config.n_embedded)
+            self.n_head = config.n_head
+            self.n_embedded = config.n_embedded
+            
+        def forward(self, x):
+            B, T, C = x.size() # (batch_size, block_size, n_embedded)
+            
+            qkv = self.c_attention(x) # (B, T, 3 * C)
+            q, k, v = qkv.split(self.n_embedded, dim=2) # q, k, v -&gt (B, T, C) 
+            k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) # (B, n_head, T, head_size)
+            q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) # (B, n_head, T, head_size)
+            v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) # (B, n_head, T, head_size)
+            
+            output = F.scaled_dot_product_attention(q, k, v, is_causal=True) # flash attention
+            output = output.transpose(1, 2).contiguous().view(B, T, C)
+            output = self.c_projection(output)
+            
+            return output
+        
+    class FeedForward(nn.Module):
+        def __init__(self, config: Config):
+            super().__init__()
+            
+            self.config = config
+            self.network = nn.Sequential(
+                nn.Linear(self.config.n_embedded, 4 * self.config.n_embedded),
+                nn.GELU(),
+                nn.Linear(4 * self.config.n_embedded, self.config.n_embedded),
+                nn.Dropout(self.config.dropout)
+            )
+            
+        def forward(self, x):
+            return self.network(x)
+        
+    class Block(nn.Module):
+        """ Transformer block: communication followed by computation """
+        
+        def __init__(self, config: Config):
+            super().__init__()
+                    
+            self.self_attention = CausalSelfAttention(config)
+            self.feed_forward = FeedForward(config)
+            self.layer_norm1 = nn.LayerNorm(config.n_embedded)
+            self.layer_norm2 = nn.LayerNorm(config.n_embedded)
+            
+        def forward(self, x):
+            x = x + self.self_attention(self.layer_norm1(x))
+            x = x + self.feed_forward(self.layer_norm2(x))
+            
+            return x # (batch_size, block_size, n_embedded)
+    
+    class MyLLM(nn.Module):
+        def __init__(self, config: Config, tokenizer: Tokenizer, data_loader: DataLoader, random_seed: int=None):
+            super().__init__()
+            
+            if not random_seed is None:
+                torch.manual_seed(random_seed)
+            torch.set_float32_matmul_precision('high')
+            
+            self.config = config
+            self.tokenizer = tokenizer
+            self.dataLoader = data_loader
+            
+            self.token_embedding_table = nn.Embedding(self.config.vocab_size, self.config.n_embedded) # look-up table
+            self.position_embedding_table = nn.Embedding(self.config.block_size, self.config.n_embedded)
+            self.blocks = nn.Sequential(
+                *[Block(self.config) for _ in range(self.config.n_layer)]
+            )
+            self.final_layer_norm = nn.LayerNorm(self.config.n_embedded)
+            self.language_modelling = nn.Linear(self.config.n_embedded, self.config.vocab_size, bias=False)
+            
+            # Weight sharing scheme
+            self.token_embedding_table.weight = self.language_modelling.weight
+            
+            self.apply(self._init_weights)
+            
+        def _init_weights(self, module):
+            if isinstance(module, nn.Linear):
+                torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)
+                if module.bias is not None:
+                    torch.nn.init.zeros_(module.bias)
+            elif isinstance(module, nn.Embedding):
+                torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)
+        
+        def forward(self, x, targets=None):
+            # x -&gt (batch_size, block_size)
+            B, T = x.shape
+            token_embedding = self.token_embedding_table(x) # (B, T, n_embedded)
+            positional_embedding = self.position_embedding_table(torch.arange(T, device=self.config.device)) # (T, n_embedded)
+            
+            output = token_embedding + positional_embedding
+            output = self.blocks(output)
+            output = self.final_layer_norm(output)
+            logits = self.language_modelling(output) # (B, T, vocab_size)
+            
+            if targets is None:
+                loss = None
+            else:
+                B, T, C = logits.shape
+                logits = logits.view(B * T, C)
+                targets = targets.contiguous().view(B * T)
+                loss = F.cross_entropy(logits, targets)
+                
+            return logits, loss
+        
+        def configure_optimizer(self):
+            param_dict = { pn:p for pn, p in self.named_parameters() }
+            param_dict = { pn:p for pn, p in param_dict.items() if p.requires_grad }
+            decay_params = [p for pn, p in param_dict.items() if p.dim() &gt= 2]
+            nodecay_params = [p for pn, p in param_dict.items() if p.dim() &lt 2]
+            optim_groups = [
+                { 'params': decay_params, 'weight_decay': self.optimizer_config.weight_decay },
+                { 'params': nodecay_params, 'weight_decay': 0.0 }
+            ]
+            fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
+            use_fused = fused_available and self.config.device.type == 'cuda'
+            print(f'Using fused AdamW: {use_fused}')
+            self.optimizer = torch.optim.AdamW(optim_groups, betas=self.optimizer_config.betas, eps=self.optimizer_config.eps)
+        
+        def optimize(self, epochs, optimizer_config: OptimizerConfig, verbose=False):
+            self.optimizer_config = optimizer_config
+            log_file = 'logs/model_logs.txt'
+            try:
+                self.epochs += epochs
+            except:
+                self.epochs = epochs
+                self.configure_optimizer()
+                self.clear_logs(log_file)
+            
+            grad_accumulation_steps = self.config.total_batch_size // (self.config.micro_batch_size * self.config.block_size)
+            if verbose:
+                print(f'Gradient accumulation steps: {grad_accumulation_steps}')
+            for iter in range(epochs):
+                epoch_idx = self.epochs - epochs + iter + 1
+                if verbose:
+                    t0 = time.time()
+                self.optimizer.zero_grad(set_to_none=True)
+                
+                # Accumulate gradients
+                loss_accumulation = 0
+                for _ in range(grad_accumulation_steps):
+                    X_batch, y_batch = self.dataLoader.get_batch(split='train')
+                    _, loss = self.forward(X_batch, y_batch)
+                    loss = loss / grad_accumulation_steps
+                    loss_accumulation += loss.detach()
+                    loss.backward()
+                
+                # Clip the global norm of gradient to 1.0
+                norm = torch.nn.utils.clip_grad_norm_(self.parameters(), 1.0)
+                if not self.optimizer_config.lr_scheduler is None:
+                    lr = self.optimizer_config.lr_scheduler.get_lr(epoch_idx)
+                    for param_group in self.optimizer.param_groups:
+                        param_group['lr'] = lr
+                else:
+                    lr = 1e-03
+                self.optimizer.step()
+                
+                if verbose == True:
+                    if self.config.device == torch.device('cuda'):
+                        torch.cuda.synchronize()
+                    t1 = time.time()
+                    dt = t1 - t0
+                    tokens_processed = self.config.micro_batch_size * self.config.block_size * grad_accumulation_steps
+                    tokens_processed_per_sec = tokens_processed / dt
+                    info_text = f'Step: {epoch_idx} | lr: {lr:.4e} | loss: {loss_accumulation:.6f} | norm: {norm:.4f} | Time: {dt:.2f}s | Tokens/sec: {tokens_processed_per_sec:.2f}'
+                    self.log(log_file, info_text)
+                    print(info_text)
+                    if epoch_idx % self.config.generate_epochs == 0:
+                        val_loss = self.evaluate(splits=['val'])['val']
+                        print(f'--- Statistics at epoch {epoch_idx} ---')
+                        print(f'Val loss: {val_loss:.6f}')
+                        print('Generated text:')
+                        print(self.generate())
+                    
+        def evaluate(self, splits=['train', 'val']):
+            out = {}
+            self.eval()
+            with torch.no_grad():
+                for split in splits:
+                    grad_accumulation_steps = self.config.total_batch_size // (self.config.micro_batch_size * self.config.block_size) if split == 'train' else self.config.val_total_batch_size // (self.config.micro_batch_size * self.config.block_size)
+                    losses = torch.zeros(grad_accumulation_steps)
+                    for micro_step in range(grad_accumulation_steps):
+                        X, Y = self.dataLoader.get_batch(split=split)
+                        X, Y = X.to(device=self.config.device), Y.to(device=self.config.device)
+                        _, loss = self.forward(X, Y)
+                        losses[micro_step] = loss.item()
+                    out[split] = losses.mean()
+            self.train()
+            return out
+        
+        def generate(self, context=None, max_new_tokens=1024):
+            # context -&gt (1, context_current_size)
+            if context == None:
+                start = self.tokenizer.encode('&lts&gt')
+                context = torch.tensor(start, dtype=torch.long, device=self.config.device).view(1, -1)
+            else:
+                context = torch.tensor(context, dtype=torch.long, device=self.config.device).view(1, -1)
+                
+            end = self.tokenizer.encode('&lte&gt')
+            for _ in range(max_new_tokens):
+                # Crop the context in the case of getting bigger than block size
+                # Keep only last block_size characters
+                context_cropped = context[:, -self.config.block_size:]
+                logits, _ = self.forward(context_cropped)
+                logits = logits[:, -1, :] # (B, vocab_size)
+                probabilities = F.softmax(logits, dim=-1)
+                
+                next_token = torch.multinomial(probabilities[:self.config.vocab_size], num_samples=1)
+                context = torch.cat((context, next_token), dim=1)
+                if self.tokenizer.decode(context[0][:-3].tolist()) == end:
+                    break
+            
+            generated = self.tokenizer.decode(context[0].tolist())
+            generated = generated.replace('&lts&gt', '')
+            generated = generated.replace('&lte&gt', '')
+            return generated
+        
+        def log(self, file, log_text):
+            open(file, 'a', encoding='utf-8').write(log_text + '\n')
+        
+        def clear_logs(self, file):
+            open(file, 'w').close()
+            </code></pre>
+            <pre><code
+              id="modelUtils"
+              class="python project-code mt-3"
+              hidden
+            >
+    import torch
+    from MyLLM import MyLLM, LearningScheduler, Config, OptimizerConfig, Tokenizer, DataLoader
+    
+    def new_model(config: Config, compile_model=True):
+        tokenizer = Tokenizer(config.vocab_path)
+        data_loader = DataLoader(config)
+        model = MyLLM(config=config, tokenizer=tokenizer, data_loader=data_loader)
+        model.to(device=model.config.device)
+        print(sum(p.numel() for p in model.parameters()) / 1e6, 'M parameters')
+        if compile_model:
+            model = torch.compile(model)
+        return model
+        
+    def optimize_model(model: MyLLM, epochs, optimizer_config, save_path=None, verbose=False):
+        model.optimize(epochs=epochs, optimizer_config=optimizer_config, verbose=verbose)
+        if not save_path is None:
+            save_model(model, path=save_path, verbose=verbose)
+    
+    def save_model(model: MyLLM, path: str, verbose=False):
+        losses = model.evaluate()
+        if verbose:
+            print(f"Train loss: {losses['train']} | Val loss: {losses['val']}")
+        torch.save({
+            'epochs': model.epochs,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': model.optimizer.state_dict(),
+            'beta0': model.optimizer_config.betas[0],
+            'beta1': model.optimizer_config.betas[1],
+            'eps': model.optimizer_config.eps,
+            'weight_decay': model.optimizer_config.weight_decay,
+            'learning_rate': model.config.learning_rate,
+            'train_loss': losses['train'],
+            'val_loss': losses['val'],
+        }, path)
+        
+    def load_model(model: MyLLM, path: str, lr_scheduler: LearningScheduler, verbose=False):
+        checkpoint = torch.load(path)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer_config = OptimizerConfig(
+            betas=[checkpoint['beta0'], checkpoint['beta1']],
+            eps=checkpoint['eps'],
+            weight_decay=checkpoint['weight_decay'],
+            lr_scheduler=lr_scheduler
+        )
+        model.optimizer_config = optimizer_config
+        model.configure_optimizer()
+        model.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        model.epochs = checkpoint['epochs']
+        
+        print(f"Model loaded and resuming training from epoch {model.epochs}\nTrain loss: {checkpoint['train_loss']}\nVal loss: {checkpoint['val_loss']}")
+        return model
+            </code></pre>
+            <pre><code 
+              id="main"
+              class="python project-code mt-3"
+              hidden
+            >
+    import torch
+    from MyLLM import Config, OptimizerConfig, LearningScheduler
+    from model_utils import new_model, optimize_model, save_model, load_model
+    
+    # Hyperparameters
+    config = Config(
+        block_size=512,
+        vocab_path='data/vocabulary.txt',
+        vocab_size=170,
+        train_file_path='data/train.txt',
+        val_file_path='data/val.txt',
+        n_layer=12,
+        n_head=12,
+        n_embedded=12*64,
+        device=torch.device('cuda' if torch.cuda.is_available() else 'cpu'),
+        dropout=0.2,
+        learning_rate=3e-04,
+        total_batch_size=65536, # 2**16 in tokens
+        val_total_batch_size=32768, # 2**15 in tokens
+        micro_batch_size=8,
+        generate_epochs=250
+    )
+    lr_scheduler = LearningScheduler(
+        scheduler='cosine_decay',
+        min_lr=6e-05,
+        max_lr=6e-04,
+        warmup_steps=500,
+        max_steps=3000
+    )
+    optimizer_config = OptimizerConfig(
+        betas=[0.9, 0.95],
+        eps=1e-08,
+        weight_decay=0.1,
+        lr_scheduler=lr_scheduler
+    )
+    
+    model = new_model(config=config, compile_model=True)
+    model = load_model(model, 'models/model.pt', lr_scheduler=lr_scheduler, verbose=True)
+    optimize_model(
+        model=model,
+        epochs=5000,
+        optimizer_config=optimizer_config,
+        save_path='models/model.pt',
+        verbose=True
+    )
+            </code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col d-flex flex-column align-items-start ms-3">
+          <p
+            class="lead"
+            data-bs-toggle="collapse"
+            href="#sources"
+            role="button"
+            aria-expanded="true"
+            aria-controls="sources"
+            onclick="onclickExpandableElement(event)"
+          >
+            Sources I learned / got inspired from
+          </p>
+          <div class="collapse show" id="sources">
+            <div class="card card-body collapse-card">
+              <ul>
+                <li>
+                  <a href="https://arxiv.org/abs/1706.03762" target="_blank"
+                    >Attention is all you need paper</a
+                  >
+                </li>
+                <li>
+                  <a href="https://arxiv.org/abs/2005.14165" target="_blank"
+                    >OpenAI GPT-3 paper</a
+                  >
+                </li>
+                <li>
+                  <a href="https://openai.com/index/chatgpt/" target="_blank"
+                    >OpenAI ChatGPT blog post</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.kaggle.com/code/residentmario/notes-on-residual-connections"
+                    target="_blank"
+                    >Notes on residual connections</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://paperswithcode.com/method/layer-normalization"
+                    target="_blank"
+                    >Layer normalization paper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/watch?v=kCc8FmEb1nY"
+                    target="_blank"
+                    >Let's build GPT: from scratch video</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/67d57c32e20fd0a7a302cb81d36e40d5-Abstract-Conference.html"
+                    target="_blank">
+                    Flash Attention paper
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://arxiv.org/abs/2307.08691"
+                    target="_blank">
+                    Flash Attention-2 paper</a>
+                </li>
+                <li>
+                  <a
+                    href="https://pytorch.org/docs/stable/index.html"
+                    target="_blank"
+                  >
+                    PyTorch documentation
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5"></div>
+      <div
+        class="modal modal-xl fade"
+        id="modalDocumentation"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitle">
+                Key features
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p class="lead" style="margin-bottom: 0">Tokenization</p>
+              <p style="margin: 0">
+                It consists in converting the raw text as a string to some
+                sequence of integers according to the vocabulary of possible
+                elements. For this model I implemented a
+                <strong>character level language model</strong>.
+              </p>
+              <ul style="margin: 0">
+                <li>
+                  I created a mapping from characters to integers and vice versa
+                </li>
+                <li>
+                  I implemented an <strong>encoder</strong> that takes as input
+                  a string and outputs a list of integers
+                </li>
+                <li>
+                  I implemented a <strong>decoder</strong> that takes a list of
+                  integers as input and outputs a string
+                </li>
+              </ul>
+              <p class="lead mt-3" style="margin-bottom: 0">Data loader</p>
+              <ul style="margin: 0">
+                <li>
+                  Encoded the entire dataset and stored it into a torch.tensor
+                </li>
+                <li>Split up data into train and validation data</li>
+                <li>Set the block size (context length)</li>
+                <li>Set the batch size</li>
+              </ul>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Positional encoding
+              </p>
+              <p style="margin: 0">
+                It helps not to hold only the tokens identities, but also the
+                positions at which the tokens occur.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">Self-attention</p>
+              <p style="margin: 0">
+                The problem that self-attention solves is that it is looking at
+                information from the past in a data dependent way.
+              </p>
+              <p style="margin: 0">
+                Each token will emit 3 vectors: <strong>key</strong>,
+                <strong>query</strong> and <strong>value</strong>. By computing
+                dot product between keys and queries we get affinities /
+                attention scores between tokens in a sequence. The output of the
+                self-attention head is obtained by dot product between
+                affinities and value.
+              </p>
+              <p style="margin: 0">
+                Attention is a <strong>communication mechanism</strong>. There
+                is no notion of space as it simply acts over a set of vectors
+                and this is why positional encoding is needed.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Multi-head attention
+              </p>
+              <p style="margin: 0">
+                It consists in applying multiple attention heads in parallel and
+                concatenating the results.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Residual / skip connections
+              </p>
+              <p style="margin: 0">
+                Deep neural networks are vulnerable to the problem of vanishing
+                gradients. Residual connections solves this problem.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Layer normalization
+              </p>
+              <p style="margin: 0">
+                Prevents data to saturate over one of the limits of the
+                activation functions. I applied layer normalization before
+                transformations, not after.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Flash attention
+              </p>
+              <p style="margin: 0">
+                It is a kernel fusion operation and it prevents materialization of the large NxN attention matrix to HBM using online softmax.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Clip the global norm of the gradient
+              </p>
+              <p style="margin: 0">
+                After calculating the gradients we add all the gradients and clip them to have a maximum norm. The clipping makes sure that the norm of the gradients is not exceeding the value set. It is good to use because sometimes we can get unlucky in the batch and obtain too big gradients that will lead to too big change of parameters.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Learning scheduler: cosine decay with warm-up
+              </p>
+              <p style="margin: 0">
+                It is starting from a minimum learning rate value and increasing to the maximum learning rate value over the first epochs (the warm-up). Then it is slowly decreasing to the minimum value over a specified
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Sample batches without replacement
+              </p>
+              <p style="margin: 0">
+                Sampling batches without replacement to reduce overfitting.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Weight decay
+              </p>
+              <p style="margin: 0">
+                Using a weight decay of 0.1 to provide a small amount of regularization.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Using torch.set_float32_matmul_precision(‘high’) to accelerate computations
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Using torch.compile
+              </p>
+              <p style="margin: 0">
+                It compiles the model by analysing the model. It will take out the Python interpreter. Speedup mainly comes from reducing Python overhead and GPU read/writes.
+              </p>
+              <p class="lead mt-3" style="margin-bottom: 0">
+                Gradient accumulation
+              </p>
+              <p style="margin: 0">
+                Allows to simulate in a serial way any arbitrary batch size by feeding the model with more micro batches before updating its parameters.
+              </p>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+              <button
+                id="modalFullscreenBtn"
+                type="button"
+                class="btn d-flex"
+                onclick="switchModalFullscreen()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-arrows-fullscreen"
+                  viewBox="0 0 16 16"
+                  style="cursor: pointer"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-fullscreen-exit"
+                  viewBox="0 0 16 16"
+                  hidden
+                >
+                  <path
+                    d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

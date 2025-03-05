@@ -1,0 +1,18 @@
+.collapse {
+  width: 95vw;
+}
+
+.collapse-card {
+  width: 100%;
+  overflow: auto;
+}
+
+pre, code {
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .ms-3 {
+    margin-left: 0 !important;
+  }
+}

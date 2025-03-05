@@ -157,11 +157,20 @@ function showEmail() {
   });
 }
 
+function copyToClipboard(event, text) {
+  navigator.clipboard.writeText(text);
+  console.log(event);
+}
+
 $(document).ready(function () {
   displayProjects();
   displayHackathons();
   handleMarginLeft();
   initToasts();
+
+  $("#projectsWrapper").children().eq(0).removeClass("collapsed");
+  $("#projectsWrapper").children().eq(0).trigger("click");
+  $("#naturallanguageprocessingProjects").children().eq(0).children().eq(1).children().eq(0).children().eq(0).trigger("click");
 });
 
 $(window).on("resize", function () {
